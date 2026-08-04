@@ -1,0 +1,132 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<UserSecretsId>aspnet-CAM.WebAPI-710E7157-918B-4436-B8E7-3636A16E9932</UserSecretsId>
+		<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+		<IsPackable>false</IsPackable>
+		<Version>1.30.0</Version>
+		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+		<WebRoot>wwwroot</WebRoot>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'CAM.WebAPIClientGenerator' " />
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'CAM.SwaggerDebug' " />
+	<ItemGroup>
+	  <Compile Remove="Controllers\DynamicReport\**" />
+		<Compile Remove="Model\**" />
+	  <Content Remove="Controllers\DynamicReport\**" />
+		<Content Remove="Model\**" />
+	  <EmbeddedResource Remove="Controllers\DynamicReport\**" />
+		<EmbeddedResource Remove="Model\**" />
+	  <None Remove="Controllers\DynamicReport\**" />
+		<None Remove="Model\**" />
+	  <TypeScriptCompile Remove="Controllers\DynamicReport\**" />
+		<TypeScriptCompile Remove="Model\**" />
+		<Compile Remove="Extensions\AuthorizeAttribute.cs" />
+		<None Remove="ClientApp\src\screen\NotFound\NotFound.css" />
+		<None Remove="ClientApp\src\screen\RegularLogin\RegularLogin.css" />
+		<None Remove="ClientApp\src\img\Vodafone_Logo.png" />
+		<None Remove="ClientApp\src\img\overview_vbmp-h_1920x500 1.png" />
+		<None Remove="ClientApp\src\img\Vector.png" />
+		<None Remove="ClientApp\src\img\Image_exports.png" />
+		<None Remove="ClientApp\src\img\Red_Vector.png" />
+		<None Remove="ClientApp\src\img\4_banner.png" />
+		<None Remove="ClientApp\src\img\Image_Planing.png" />
+		<None Remove="ClientApp\src\img\image_utilites.png" />
+		<None Remove="ClientApp\src\img\Image.png" />
+		<None Remove="ClientApp\src\Components\Footer\Footer.css" />
+		<None Remove="ClientApp\src\Components\Footer\Footer.js" />
+		<None Remove="ClientApp\src\Containers\home-cards\home-cards.css" />
+		<None Remove="ClientApp\src\Containers\header\nav-header\nav-header.css" />
+		<None Remove="ClientApp\src\Containers\header\menu-header\menu-header.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="DocumentFormat.OpenXml" Version="2.7.2" />
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" Version="6.0.16" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.16" />
+		<PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Identity.Web" Version="0.2.0-preview" />
+		<PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.3.2" />
+		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+		<PackageReference Include="NLog.Config" Version="4.7.4" />
+		<PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
+		<PackageReference Include="Oracle.EntityFrameworkCore" Version="6.21.90" />
+		<PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.100" />
+		<PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0-dev-00024" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CAM.BusinessManager\CAM.BusinessManager.csproj" />
+		<ProjectReference Include="..\CAM.Contracts\CAM.Contracts.csproj" />
+		<ProjectReference Include="..\CAM.DataTransferObjects\CAM.DataTransferObjects.csproj" />
+		<ProjectReference Include="..\CAM.Exports\CAM.Exports.csproj" />
+		<ProjectReference Include="..\CAM.Identity\CAM.Identity.csproj" />
+		<ProjectReference Include="..\CAM.Import\CAM.Imports.csproj" />
+		<ProjectReference Include="..\CAM.Infrastucture\CAM.Infrastucture.csproj" />
+		<ProjectReference Include="..\CAM.LoggerService\CAM.LoggerService.csproj" />
+		<ProjectReference Include="..\CAM.Repository\CAM.Repository.csproj" />
+		<ProjectReference Include="..\OracleModels\OracleModels.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="Properties\ServiceDependencies\vodafonecam - Web Deploy\profile.arm.json">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="wwwroot\TemplateFiles\TEMS_BPT_Export_Draft_v1.0.xls">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\TemplateFiles\TEMS_BPT_Export_Draft_v1.0.xlsx">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\TemplateFiles\_capex_nse_template_op.xls">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="TemplateFiles\TEMS_BPT_Export_Draft_v1.0.xls">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="TemplateFiles\TEMS_BPT_Export_Draft_v1.0.xlsx">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="TemplateFiles\_capex_nse_template_op.xls">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\CBOM\" />
+	</ItemGroup>
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties appsettings_1json__JsonSchema="" clientapp_4package_1json__JsonSchema="" clientapp_4tsconfig_1json__JsonSchema="" />
+		</VisualStudio>
+	</ProjectExtensions>
+
+
+
+</Project>

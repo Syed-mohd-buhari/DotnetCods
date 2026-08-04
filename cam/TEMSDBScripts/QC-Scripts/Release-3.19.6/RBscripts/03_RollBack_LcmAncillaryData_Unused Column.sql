@@ -1,0 +1,15 @@
+---------------------------
+-- ROLLBACK ALTER SCRIPT for Table lcmancillarydata  
+---------------------------
+
+ALTER TABLE lcmancillarydata add  KPISTATUSSERVICE NVARCHAR2(50);
+ALTER TABLE lcmancillarydata add  CUSTOM NVARCHAR2(50);
+ALTER TABLE lcmancillarydata add  CUSTOM1 NVARCHAR2(50);
+ALTER TABLE lcmancillarydata add  CUSTOM2 NVARCHAR2(50);
+ALTER TABLE lcmancillarydata add  IDNEW NVARCHAR2(100);
+ALTER TABLE lcmancillarydata add  PRODUCTIMPORTANCEHISTORY2 NVARCHAR2(255);
+ALTER TABLE lcmancillarydata add  CLOUDVERSION NVARCHAR2(20);
+ALTER TABLE lcmancillarydata add  CERTIFIEDSWREALESEFORNFVIBUNDLE NVARCHAR2(50);
+ALTER TABLE lcmancillarydata add  LCMSTATUS  NVARCHAR2(50);
+ALTER TABLE LCMANCILLARYDATA   ADD SECURITYRISKPOTENTIAL NVARCHAR2(20);
+commit ;  

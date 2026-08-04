@@ -1,0 +1,105 @@
+th.customVolteKPIHead {
+  /* width: 163px; */
+  max-width: 160px;
+  background-color: #cccccce1 !important;
+  color: #333333 !important;
+  font-weight: bold !important;
+}
+
+.minWidthKPI {
+  min-width: 115px;
+}
+
+.WidthKPIForBuilt {
+  width: 1px;
+}
+
+.borderCustom {
+  border: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.borderUnset {
+  border-collapse: unset;
+}
+
+.customMinHeight {
+  min-height: 430px;
+}
+
+.noVerticalAlign {
+  vertical-align: baseline !important;
+}
+
+.disabledDate {
+  pointer-events: none !important;
+}
+
+.disabledBackground {
+  background-color: #eeeeee !important;
+}
+.storedBackground {
+  background-color: #ddd !important;
+}
+
+.inputNoBorder {
+  border: none !important;
+  -moz-appearance: textfield;
+  outline: none;
+}
+
+.bg-rejected {
+  background-color: #e60000;
+}
+
+.customSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: #ccc; */
+  background-color: red;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.customSlider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .customSlider {
+  background-color: green;
+}
+
+input:focus + .customSlider {
+  box-shadow: 0 0 1px red;
+}
+
+input:checked + .customSlider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.customSlider.round {
+  border-radius: 34px;
+}
+
+.customSlider.round:before {
+  border-radius: 50%;
+}
+
+.custom-padding {
+  padding: 0 40px !important;
+}

@@ -1,0 +1,172 @@
+.login_page {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+}
+
+section.login_header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 30px;
+}
+section > span {
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #e60000;
+}
+section.login_header .vd_logo {
+  width: 40px;
+  margin-right: 5px;
+}
+section.login_body {
+  height: calc(100vh - 40px);
+  min-height: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f3f3f6;
+}
+
+.login_body_left .tems_logo {
+  width: 131px;
+  height: 118px;
+}
+
+.login_body_left h3 {
+  color: #e60000;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.login_body_right {
+}
+
+.login_body_right .login_container {
+  width: 371px;
+  height: 381px;
+  border-radius: 20px;
+  background: #e6e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_form p.tems_title {
+  color: #000;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 0px !important;
+}
+.login_form p.tems_description {
+  color: #000;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.login_form p.login_title {
+  color: #000;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 0px !important;
+}
+.login_form p.login_description {
+  color: #8b8d97;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0px !important;
+}
+.login_form .login_btns,
+.login_local_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login_form .login_btns > button {
+  width: 86px;
+  height: 41px;
+  border-radius: 10px;
+  background: #c4c4c4;
+  margin: 5px;
+  color: #000;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.login_local_form input {
+  height: 52px;
+  width: 90%;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(239, 241, 249, 0.6);
+  margin-bottom: 10px;
+}
+.login_local_btns,
+.admin_local_btns {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+}
+.admin_local_btns {
+  justify-content: center;
+  align-items: center;
+}
+button.login_btn,
+.admin_local_btns > button {
+  margin-top: 10px;
+  width: 114px;
+  color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 20px;
+  font-weight: 400;
+  background: #e60000;
+  border: none;
+}
+button.login_btn:hover,
+button.login_btn:active,
+button.login_btn:not(.disabled):active {
+  margin-top: 10px;
+  width: 114px !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  text-align: center;
+  font-family: VodafoneRg, Arial, Helvetica, san-serif;
+  font-size: 20px;
+  font-weight: 400;
+  background: #e60000 !important;
+  border: none !important;
+}
+
+button.login_btn_cancel,
+.admin_local_btns > button:first-child {
+  background: #820000;
+}
+button.login_btn_cancel:hover,
+button.login_btn_cancel:active,
+button.login_btn_cancel:not(.disabled):active {
+  background: #820000;
+}
+
+/* .login_local_btns > button:nth-child(2),
+.admin_local_btns > button:nth-child(2),
+.admin_local_btns button.azure_login_btn {
+  background: #e60000;
+} */

@@ -1,0 +1,38 @@
+@keyframes smooth-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.auto-scroll-content {
+  animation: smooth-scroll linear infinite;
+  animation-timing-function: linear;
+  will-change: transform;
+}
+
+/* Ensure smooth scrolling on hover */
+.auto-scroll-container {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+.auto-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.auto-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.auto-scroll-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.auto-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

@@ -1,0 +1,5 @@
+-----RF Script for PlannedActivity------------------
+
+ALTER TABLE PLANNEDACTIVITIES MODIFY DELIVERYPLANAVAILABLE DEFAULT 1;
+
+COMMIT;

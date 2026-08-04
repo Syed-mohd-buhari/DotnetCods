@@ -1,0 +1,62 @@
+----------------------------------------- 
+-- UPDATE THE NETWORKELEMENTASPLANNED TABLE LCMENGINEERINGID ID BASED ON LCMENGINEERING TABLE LCMENGINEERINGID
+----------------------------------------- 
+--drop table networkelementsasplanned_BackUp;
+--commit;
+
+CREATE TABLE networkelementsasplanned_BackUp AS SELECT * FROM networkelementsasplanned; 
+
+DECLARE
+    cursoropcoid      number(10, 0);
+    cursordesignid number(10, 0);
+	cursorassetid number(10, 0);
+	backupSelectAssetId NUMBER(10, 0);
+    assetSelectAssetId NUMBER(10, 0);
+    cursor networkelementsasplannedcursor is
+    
+	select 
+        lcmengineeringid,
+        opcoid,
+		designcomponentid,
+		networkelementasplannedid
+    from
+        networkelementsasplanned
+	where lcmengineeringid is  null	 and  DELETED != 1 ;
+     
+BEGIN
+    FOR rulecusorobj IN networkelementsasplannedcursor LOOP
+        cursoropcoid := rulecusorobj.opcoid;
+        cursordesignid :=  rulecusorobj.designcomponentid;
+		cursorassetid :=  rulecusorobj.networkelementasplannedid;         
+       
+	   update networkelementsasplanned
+        set
+            lcmengineeringid = (			
+			select lcmengineeringid from lcmengineering where 
+            opcoid = cursoropcoid and designcomponentid = cursordesignid 			
+			) 
+        where           
+            networkelementasplannedid = cursorassetid and  DELETED != 1;        
+	
+	 
+    END LOOP;
+
+    COMMIT; 
+
+
+Select count(1) into backupSelectAssetId from networkelementsasplanned_BackUp;
+Select count(1) into assetSelectAssetId from networkelementsasplanned where lcmengineeringid is not null and  DELETED != 1 ;
+
+End;
+	
+-------------------
+--- Select networkelementsasplanned_BackUp Table  
+-------------------	
+
+Select * from networkelementsasplanned_BackUp;
+
+-------------------
+--- Select networkelementsasplanned Table  
+-------------------	
+
+Select * from networkelementsasplanned where lcmengineeringid is not null and  DELETED != 1 ;

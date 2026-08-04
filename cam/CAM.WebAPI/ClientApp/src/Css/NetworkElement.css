@@ -1,0 +1,1172 @@
+div.searchBarContainer {
+  padding: 20px;
+  min-height: 100px;
+  background-color: #eee;
+}
+
+input.inputSearch {
+  border-radius: 6px;
+  border: 1px solid #888;
+  height: 38px;
+}
+
+.heightLimitTable {
+  max-width: 100% !important;
+  white-space: unset !important;
+}
+button.inputSearch {
+  height: 38px;
+  width: 38px;
+  padding: 0;
+  border-radius: 6px;
+}
+.YourHighlightClass {
+  background: #98c0ea !important;
+}
+
+button.inputSearch > img {
+  height: 24px;
+}
+
+button.btnEdit {
+  height: 38px;
+  width: 38px;
+  padding: 0;
+  border-radius: 6px;
+}
+
+button.btnEdit.view {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 6px;
+  /* border:1px solid #888; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img.btnEdit {
+  height: 18px;
+}
+
+img.btnOrder {
+  height: 10px;
+  margin-bottom: 5px;
+}
+
+.inputFiltri {
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  min-width: 90px;
+  padding-left: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
+select option[data-default] {
+  color: #888;
+}
+
+div.filtroContainer {
+  max-width: 200px;
+}
+
+::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+  color: transparent;
+}
+
+label.validationFeild {
+  font-size: 14px;
+  font-family: "VodafoneRg";
+  font-weight: bold;
+  color: #dd0000;
+  position: relative;
+}
+
+label.validation {
+  font-size: 13px;
+  font-family: "VodafoneRg";
+  font-weight: bold;
+  color: #dd0000;
+  position: absolute;
+  left: 0;
+  bottom: -26px;
+}
+label.warringValidation {
+  font-size: 13px;
+  font-family: "VodafoneRg";
+  font-weight: bold;
+  color: #ffa500;
+  position: absolute;
+  left: 0;
+  bottom: -26px;
+}
+
+label.validationLower {
+  font-size: 13px;
+  font-family: "VodafoneRg";
+  font-weight: bold;
+  color: #dd0000;
+}
+
+tr.intestazione {
+  min-height: 40px;
+  background-color: #cccccc !important;
+}
+
+div.statusRadio.disabled {
+  background-color: #ededed;
+}
+
+tr.intestazione > th {
+  font-family: "VodafoneRg";
+  font-weight: bold;
+  font-size: 12px;
+  height: 50px;
+  color: #000;
+  padding: 0;
+  position: relative;
+}
+
+button.resetFilter:hover {
+  border: 1px solid #ddd;
+}
+
+tr.dati.greenCorrect {
+  background-color: rgba(40, 250, 40, 0.3) !important;
+}
+
+tr.dati.greenCorrect:hover {
+  background-color: rgba(40, 250, 40, 0.4) !important;
+}
+
+tr.dati.redDuplicate {
+  background-color: rgba(250, 40, 40, 0.3) !important;
+}
+
+tr.dati.redDuplicate:hover {
+  background-color: rgba(250, 40, 40, 0.4) !important;
+}
+
+tr.dati {
+  background-color: var(--table_tr_bg);
+  /* max-height: 60px; */
+}
+.table_tr_bg {
+  background-color: var(--table_tr_bg);
+}
+.table_tr_even_bg {
+  background-color: var(--table_tr_bg_even);
+}
+.table_tr_bg:hover ~ tr.dati.null,
+.table_tr_even_bg:hover ~ tr.dati.null {
+  background-color: var(--table_tr_bg_even) !important;
+}
+
+tr.dati.orphan:not(.greenCorrect):not(.redDuplicate) {
+  background-color: var(--orphan_alternate_highlight) !important;
+  /* max-height: 60px; */
+}
+
+tr.dati.orphan:not(.greenCorrect):not(.redDuplicate):nth-child(even) {
+  background-color: var(--orphan_highlight) !important;
+  /* max-height: 60px; */
+}
+
+tr.dati.orphan:not(.greenCorrect):not(.redDuplicate):hover {
+  background-color: var(--orphan_highlight_hover) !important;
+  /* max-height: 60px; */
+}
+
+tr.dati.default {
+  background-color: #87f7ff;
+}
+
+tr.dati.checkbox {
+  cursor: pointer;
+}
+
+tr.dati:not(.notHover):hover {
+  background-color: var(--table_tr_bg_hover) !important;
+}
+
+tr.dati:nth-child(even) {
+  /* border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; */
+  background-color: var(--table_tr_bg_even);
+}
+
+tr.dati > td {
+  font-family: "VodafoneRg";
+  padding: 5px 10px;
+  position: relative;
+  font-size: 14px;
+  color: var(--table_tr_td_color);
+  text-align: left;
+  max-width: 165px;
+  word-wrap: break-word;
+  text-wrap: wrap;
+  word-break: break-all;
+}
+
+tr.dati > td a {
+  color: var(--table_tr_td_color);
+}
+
+td.smallColumn {
+  width: 30px !important;
+}
+
+td.mediumColumn {
+  width: 100px !important;
+}
+
+tr.dati.correct,
+div.greenLine {
+  background-color: rgba(0, 255, 76, 0.1);
+}
+
+tr.dati.toEdit,
+div.yellowLine {
+  background-color: rgba(255, 230, 0, 0.253);
+}
+
+tr.dati.original,
+div.blueLine {
+  background-color: rgba(0, 110, 255, 0.253);
+}
+
+tr.dati.duplicate,
+div.redLine {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+tr.dati.toAdd {
+  background-color: rgba(0, 110, 255, 0.1);
+}
+
+label.toCorrect {
+  color: red !important;
+  text-decoration: none;
+}
+
+/* STATUS */
+
+td.modified {
+  font-family: "VodafoneRgBd" !important;
+}
+
+div.statusDiv {
+  height: 34px;
+  width: 34px;
+  border-radius: 25px;
+}
+
+td.red {
+  color: #e60000 !important;
+}
+
+td.orange {
+  color: orange !important;
+}
+
+td.checkbox {
+  background-color: #fff;
+}
+
+div.statusDiv > span {
+  margin-bottom: 1px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+div.black {
+  background-color: #000;
+}
+
+div.red {
+  background-color: #e60000;
+}
+
+td.status,
+th.status {
+  display: flex;
+  text-align: center;
+  justify-content: center !important;
+}
+
+th.text,
+td.text,
+th.date,
+td.date {
+  text-align: left;
+}
+
+.titleSectionModal {
+  color: #333333;
+  font-size: 20px;
+}
+
+label.labelForm,
+form.labelForm label {
+  font-size: 16px;
+  color: #000;
+  position: relative;
+}
+
+.labelForm {
+  margin-bottom: 20px;
+  color: #333333 !important;
+}
+
+.themeText {
+  margin-bottom: 20px;
+  color: var(--primary_theme_color) !important;
+}
+
+input.inputForm,
+textarea.inputForm,
+select.inputForm,
+form.inputForm input,
+form.inputForm select,
+.customFakeInput,
+.customFakeInputWithSpace {
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #e0e0e0;
+  font-family: "VodafoneRg";
+  font-size: 16px;
+}
+
+input.inputForm.checkboxList {
+  height: 15px;
+}
+
+.customFakeInput {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.customFakeInputWithSpace {
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.customFakeInputWithSpace.disabled {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.customFakeInput.disabled {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.disabled {
+  background-color: hsl(0, 0%, 95%);
+}
+
+form.inputForm select {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+input.inputForm:focus,
+textarea.inputForm:focus,
+select.inputForm:focus {
+  outline-color: rgb(7, 123, 255);
+}
+
+textarea.inputForm {
+  padding-top: 10px;
+  padding-right: 15px;
+  min-height: 84px;
+}
+
+div.inputForm {
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 5px;
+  padding-left: 10px;
+  border: 1px solid #e0e0e0;
+  font-family: "VodafoneRg";
+}
+
+div.css-1s2u09g-control,
+div.css-yk16xz-control,
+div.css-5duvv3-control,
+div.css-1fhf3k1-control {
+  min-height: 40px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 1px solid #e0e0e0;
+  font-family: "VodafoneRg";
+}
+
+input.inputForm:read-only {
+  background-color: #eee;
+}
+
+textarea.inputForm:read-only {
+  background-color: #eee;
+}
+
+select.inputForm option {
+  font-family: "VodafoneRg";
+}
+
+.buttonFilter {
+  text-align: left;
+  color: #000;
+  padding: 0 !important;
+  max-width: 80%;
+}
+
+.buttonFilter:hover {
+  text-decoration: none !important;
+  color: #e60000;
+}
+
+.buttonFilter:focus {
+  text-decoration: none !important;
+}
+
+.btnOrder2 {
+  height: 14px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  width: 13px;
+  margin: 0 10px;
+}
+
+img.btnOrder2.filterColor {
+  filter: invert(57%) sepia(0%) saturate(466%) hue-rotate(142deg)
+    brightness(96%) contrast(88%) !important;
+}
+
+img.btnOrder2.filterColor:hover,
+img.btnOrder2.filterColor:focus,
+img.btnOrder2.filterColor.active {
+  filter: invert(33%) sepia(100%) saturate(6230%) hue-rotate(331deg)
+    brightness(101%) contrast(101%) !important;
+}
+
+.resetFilter:focus {
+  border: 2px solid #e60000 !important;
+}
+
+div.divFilter {
+  padding: 10px;
+  white-space: nowrap;
+  display: contents;
+}
+
+div.divFilter > label {
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+div.divFilter > span:hover,
+div.divFilter > span:focus,
+div.divFilter > label:hover,
+div.divFilter > label:focus,
+div.divFilter > label.active {
+  color: #e60000 !important;
+  cursor: pointer;
+}
+
+div.divFilter.reports > span:hover {
+  color: #555;
+  cursor: pointer;
+}
+
+td {
+  vertical-align: middle !important;
+}
+
+input.custom {
+  width: 80%;
+}
+
+.nav-item.nav-link {
+  font-family: "VodafoneRgBd";
+}
+
+.nav-item.nav-link.active {
+  font-family: "VodafoneRgBd";
+}
+
+div.filterMenu {
+  min-height: 150px;
+  min-width: 220px;
+  /* max-width:100%;  */
+  background-color: #fff !important;
+  position: absolute;
+  top: 51px;
+  z-index: 100;
+  border-radius: 5px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1);
+}
+
+div.filterMenuOrphans {
+  /* min-height: 150px;
+  min-width: 220px; */
+  /* max-width:100%;  */
+  background-color: #fff;
+  /* position: absolute; */
+  /* top: 50px;
+  right: 0;
+  z-index: 100;
+  border-radius: 5px; */
+  /* box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1); */
+}
+
+@font-face {
+  font-family: "VodafoneLt";
+  src: url("../Font/VodafoneLt_W.woff");
+}
+
+@font-face {
+  font-family: "VodafoneRg";
+  src: url("../Font/VodafoneRg_W.woff");
+}
+
+@font-face {
+  font-family: "VodafoneRgBd";
+  src: url("../Font/VodafoneRgBd_W.woff");
+}
+
+.green {
+  color: #40905e !important;
+  font-weight: 600;
+}
+
+.blue {
+  color: #2f75b5 !important;
+  font-weight: 600;
+}
+
+.red {
+  color: #dd0000 !important;
+  font-weight: 600;
+}
+.lightgreenv {
+  color: #4db380 !important;
+  font-weight: 600;
+}
+
+.amber {
+  color: #cc7a00 !important;
+  font-weight: 600;
+}
+
+.yellow {
+  color: #ffff00 !important;
+  font-weight: 600;
+}
+
+.gray {
+  color: #7a7a7a !important;
+  font-weight: 600;
+}
+
+.orange {
+  color: orange !important;
+  font-weight: 600;
+}
+
+.gold {
+  color: gold !important;
+  font-weight: 600;
+}
+
+.grey {
+  color: silver !important;
+  font-weight: 600;
+}
+
+.black {
+  font-weight: 600;
+}
+
+div.filterMenuOrder {
+  min-height: 50px;
+  min-width: 220px;
+  background-color: #fff;
+  position: absolute;
+  top: 40px;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+button.btnOrderBy {
+  font-size: 9.5px;
+  font-family: "VodafoneRg";
+}
+
+button.btnConfirmCancelFilters {
+  font-size: 12px;
+  font-family: "VodafoneRg";
+}
+
+label.filterMenu {
+  font-size: 10px;
+  font-family: "VodafoneRg";
+  font-weight: lighter;
+  margin-bottom: 2px;
+  color: #555;
+  text-align: left;
+}
+
+a.fakeLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+input.filterMenu {
+  font-size: 9.5px;
+  font-family: "VodafoneRg";
+  height: 25px;
+  border: 1px solid #feeffe;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+  padding-left: 5px;
+}
+
+input.filterMenu::placeholder {
+  color: #aaa;
+}
+
+input.filterCheckbox {
+  margin-top: 3px;
+}
+
+div.listaCheckbox {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+button.btnMore {
+  font-size: 12px;
+}
+
+.hover-link > a {
+  max-width: 250px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  color: #007bff !important;
+}
+
+.hover-link:hover {
+  color: #007bff !important;
+  text-decoration: underline;
+}
+
+div.majorHardware {
+  max-width: 250px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  color: #007bff;
+}
+
+div.majorHardware:hover {
+  text-decoration: underline;
+}
+
+div.bubbleMenu {
+  /* min-height: 213px; */
+  min-width: 220px;
+  background-color: #333;
+  max-width: 100%;
+  position: absolute;
+  top: 28px;
+  z-index: 10;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1);
+}
+div.bubbleMenuSW {
+  /* min-height: 213px; */
+  min-width: 300px;
+  background-color: #333;
+  max-width: 100%;
+  position: absolute;
+  top: 28px;
+  z-index: 10;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1);
+}
+
+div.bubbleMenuLegenda {
+  /* min-height: 213px;
+  min-width: 317px;
+  background-color: #333;
+  max-width: 100%;
+  position: absolute;
+  top: 140px;
+  right: -18px;
+  z-index: 100;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1); */
+}
+
+div.bubbleMenuLegendaInfo {
+  background-color: rgb(51, 51, 51);
+  min-height: 50px;
+  min-width: 100px;
+  position: absolute;
+  max-width: 100%;
+  z-index: 100;
+  color: white;
+  border-radius: 10px;
+}
+
+div.triangleBubbleTop {
+  width: 26px;
+  height: 10px;
+  border-bottom: 10px solid #333;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+}
+
+div.triangleBubbleTop-left {
+  width: 26px;
+  height: 10px;
+  border-bottom: 10px solid #333;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+/* div.triangleBubbleTop-right {
+  width: 26px;
+  height: 10px;
+  border-bottom: 10px solid #333;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  position: absolute;
+  top: -10px;
+  right: 20px;
+} */
+
+a.majorHardware {
+  width: 100% !important;
+  color: #fff !important;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+a.majorHardware:hover {
+  text-decoration: underline;
+}
+
+a.oem {
+  cursor: pointer;
+  color: #333333;
+  text-decoration: underline;
+}
+
+a.oem:hover {
+  text-decoration: underline;
+}
+
+div.footerModal {
+  padding-bottom: 10px;
+}
+
+.bodyModal {
+  padding: 0 1rem !important;
+}
+
+input.associateSearchbar {
+  height: 45px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgb(118, 118, 118);
+  padding-left: 10px;
+  font-weight: 300;
+}
+
+button.associateSearchbar {
+  height: 45px;
+  border: none !important;
+}
+
+button.associateSearchbar:disabled {
+  height: 45px;
+  background-color: #333 !important;
+  border: none !important;
+}
+
+div.associateSearchbarContainer {
+  max-height: 300px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+}
+
+div.associateContainer {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+td.checkInputTable {
+  width: 45px !important;
+}
+
+tr.noresults {
+  height: 50px;
+}
+
+button.btnResetData {
+  font-size: 12px;
+  padding: 0 !important;
+  height: 15px !important;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  text-align: end;
+}
+
+.backdropConfirm {
+  background-color: #000;
+  z-index: 1510;
+}
+
+.modalConfirm {
+  z-index: 1511;
+  display: flex;
+  justify-content: center;
+}
+
+.dialogConfirm {
+  width: 45%;
+}
+
+.dialogLcm,
+.dialogResource {
+  min-width: 70vw;
+}
+
+.backdropGrid {
+  background-color: #000;
+  z-index: 1500;
+}
+
+.modalGrid {
+  z-index: 1501;
+  display: flex;
+  justify-content: center;
+}
+
+.backdropLookup {
+  background-color: #000;
+  z-index: 1502;
+}
+
+.modalLookup {
+  z-index: 1503;
+  display: flex;
+  justify-content: center;
+}
+
+.secondBackdropLookup {
+  background-color: #000;
+  z-index: 1505;
+}
+
+.secondModalLookup {
+  z-index: 1506;
+  display: flex;
+  justify-content: center;
+}
+
+.upperBackdropLookup {
+  background-color: #000;
+  z-index: 1507;
+}
+
+.upperModalLookup {
+  z-index: 1508;
+  display: flex;
+  justify-content: center;
+}
+
+.backdropRelatedModal {
+  background-color: #000;
+  z-index: 1550;
+}
+
+.dialogRelatedModal {
+  z-index: 1551;
+  display: flex;
+  justify-content: center;
+}
+
+.dialogLookup {
+  width: 70%;
+}
+
+.modal-header,
+.modal-footer {
+  border: none !important;
+}
+
+.modal-body {
+}
+
+.modal-header {
+  background-color: transparent;
+  color: #252525;
+}
+
+.modal-header > button > span {
+  color: #a3a3a3;
+}
+
+.modal-title {
+  width: 100%;
+  font-weight: 700;
+}
+
+.modal-header > div > div > h4 {
+  color: #333333;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  margin-top: 50px;
+}
+
+div.tableOverflow {
+  overflow-x: scroll;
+}
+
+table {
+  filter: drop-shadow(0px 4px 4px rgba(196, 196, 196, 0.6));
+}
+
+table.tableOverflow {
+  min-width: 100%;
+  min-height: 600px;
+}
+
+div.divFilter.customWidth {
+  /* min-width: 140px; */
+}
+
+th.customWidth {
+  min-width: 130px;
+}
+td.actions {
+  display: flex;
+  justify-content: center;
+}
+
+button.btnLegenda {
+  position: absolute;
+  right: 0;
+  bottom: -60px;
+  background-color: transparent;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  padding: 0;
+  border: none !important;
+  outline: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.btnLegenda > img {
+  height: 20px;
+  width: 20px;
+}
+
+div.css-1s2u09g-control,
+div.css-2b097c-container,
+div.css-14jk2my-container {
+  margin-top: 5px;
+}
+
+div.legendaElement {
+  height: 29px;
+  width: 29px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+div.legendaElement.red {
+  background-color: #ed1b1b;
+}
+
+div.legendaElement.green {
+  background-color: #00c300;
+}
+
+div.legendaElement.gray {
+  background-color: #d3d3d3;
+}
+
+div.legendaElement.black {
+  background-color: #000;
+}
+
+div.legendaElement.blu {
+  background-color: #2670ba;
+}
+
+div.legendaElement.lightgreenv {
+  background-color: #90ee90;
+}
+
+div.legendaElement.white {
+  background-color: #ffffff;
+}
+
+span.legendaElement {
+  font-size: 13px;
+}
+
+a#logs-tab-ServerLogs,
+a#logs-tab-FeedbackLogs,
+a#logs-tab-AuditTrails,
+a#report-tab-software,
+a#viaExport-tab-software,
+a#viaExport-tab-hardware,
+a#report-tab-hardware,
+a#report-tab-provisioned,
+a#report-tab-registered {
+  padding-left: 50px;
+  padding-right: 50px;
+  color: var(--primary_theme_color);
+}
+
+th.customMaxWidth,
+td.customMaxWidth {
+  max-width: 500px !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: #000;
+  background-color: transparent !important;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #e0e0e0;
+  width: max-content;
+}
+
+a.linkTo,
+label.linkTo {
+  color: #000;
+  cursor: pointer;
+}
+
+a.linkTo:hover,
+label.linkTo:hover {
+  color: #2670ba;
+  text-decoration: underline;
+}
+
+.modal-content {
+  border-radius: 15px;
+}
+
+div.custom-map-modal.modal-container > div.modal-dialog > div.modal-content {
+  width: 100%;
+  height: 100%;
+}
+
+div.custom-map-modal.modal-container > div.modal-dialog {
+  width: 100% !important;
+  margin: 0 !important;
+  height: 100% !important;
+  max-width: 100% !important;
+}
+
+.selectedOrder {
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+.minHeight {
+  min-height: 600px;
+}
+
+.minHeight-0 {
+  min-height: 0px !important;
+}
+
+.control-label {
+  margin-bottom: 0;
+}
+
+div.jsonInput {
+  border: 1px solid #888;
+  border-radius: 10px;
+  min-height: 40px;
+  margin-top: 5px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+div.checkbox > label {
+  display: flex;
+  align-items: center;
+}
+
+div.checkbox > label > input {
+  margin-right: 5px;
+  margin-top: 0;
+}
+
+.separatorDuplicate {
+  border-top: 2px solid red;
+}
+
+.custom-border-bottom {
+  border-bottom: 1px solid #ddd !important;
+}
+
+.modal-header .close {
+  font-size: 50px;
+  position: absolute;
+  right: 21px;
+  background: transparent;
+  z-index: 99999;
+  opacity: 1;
+}
+.css-t9y8lz-control {
+  border: none !important;
+  /* background: #F2F2F2 !important;   */
+}

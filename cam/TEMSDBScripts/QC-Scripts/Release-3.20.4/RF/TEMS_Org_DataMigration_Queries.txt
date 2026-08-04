@@ -1,0 +1,199 @@
+Select Count(1) from aspnetuserroles uroles JOIN ASPNETUSERS USR ON upper(regexp_replace(USR.email,' ',''))  = upper(regexp_replace(SDS.SUBDOMAINSPOC,' ','')
+Select count(*) from SubdomainSPOCS where upper(regexp_replace(SUBDOMAINSPOC,' ','')) not in (Select email from aspnetuser);
+Select Count(Distinct USR.email) from ASPNETUSERS USR
+JOIN aspnetuserroles USROLES on USR.ID = USROLES.userid
+JOIN SubdomainSPOCS SDS ON upper(regexp_replace(USR.email,' ',''))  = upper(regexp_replace(SDS.SUBDOMAINSPOC,' ',''));
+
+--Select * from SystemTypeVerticalResponsible_Backup
+
+CREATE TABLE MajorSWDesignContact_MIGTEMP(SystemTypeId NUMBER(19), MajorSWBUILDID NUMBER(19), DesignContact NVARCHAR2(100), ASPNETUSERID NUMBER(19), VerticalResponsible NVARCHAR2(50));
+
+INSERT INTO MajorSWDesignContact_MIGTEMP (Systemtypeid,MajorSWBUILDID,DesignContact,ASPNETUSERID,VerticalResponsible)
+Select Distinct st.SystemTypeId, MAJORSOFTWAREBUILDSID, USR.EMAIL as Contact_ID, USR.ID, V.VerticalResponsible
+from SystemTypes st JOIN SystemTypesSUBDomainSPOC STSDS ON st.SystemTypeId = STSDS.SystemTypeId 
+JOIN SubDomainSPOCS SDS ON SDS.SubDomainSPOCID = STSDS.SubDomainSPOCID
+JOIN ASPNETUSERS USR ON upper(regexp_replace(USR.email,' ','')) = upper(regexp_replace(SDS.SubDomainSPOC,' ',''))
+JOIN ASPNETUSERROLES UR on USR.ID = UR.USERID
+JOIN VerticalResponsibles V ON v.VerticalResponsibleid = ST.VerticalResponsibleid
+
+--Validation Script
+Select SystemTypeId from SystemTypes where SystemTypeId not in (Select SystemTypeid from MajorSWDesignContact_MIGTEMP);
+
+
+
+CREATE TABLE MajorHWDesignContact_MIGTEMP(SystemTypeId NUMBER(19), MajorHWBUILDID NUMBER(19), DesignContact NVARCHAR2(100), ASPNETUSERID NUMBER(19), VerticalResponsible NVARCHAR2(50));
+
+INSERT INTO MajorHWDesignContact_MIGTEMP (Systemtypeid,MajorHWBUILDID,DesignContact,ASPNETUSERID,VerticalResponsible)
+Select Distinct st.SystemTypeId, MAJORHARDWAREID, USR.EMAIL as Contact_ID, USR.ID, V.VerticalResponsible
+from SystemTypes st JOIN SystemTypesSUBDomainSPOC STSDS ON st.SystemTypeId = STSDS.SystemTypeId
+JOIN SYSTEMTYPESMAJORHARDWAREBUILDS HW ON st.SystemTypeId = HW.SystemTypeId 
+JOIN SubDomainSPOCS SDS ON SDS.SubDomainSPOCID = STSDS.SubDomainSPOCID
+JOIN ASPNETUSERS USR ON upper(regexp_replace(USR.email,' ','')) = upper(regexp_replace(SDS.SubDomainSPOC,' ',''))
+JOIN ASPNETUSERROLES UR on USR.ID = UR.USERID
+JOIN VerticalResponsibles V ON v.VerticalResponsibleid = ST.VerticalResponsibleid
+
+--Validation Script
+Select SystemTypeId from SystemTypes where SystemTypeId not in (Select SystemTypeid from MajorHWDesignContact_MIGTEMP);
+
+CREATE TABLE lcmengineeringsubdomainspoc_MIGTEMP(LCMENGINEERINGID NUMBER(19),OPCOID  NUMBER(5), DESIGNCOMPONENTID  NUMBER(19), SubDomainSPOC NVARCHAR2(100),ASPNETUSERID NUMBER(19));
+
+INSERT INTO lcmengineeringsubdomainspoc_MIGTEMP (LCMENGINEERINGID,OPCOID,DESIGNCOMPONENTID,SubDomainSPOC,ASPNETUSERID)
+Select LCM.LCMENGINEERINGID, LCM.OPCOID,LCM.DesignComponentID,USR.EMAIL as SubDomainSPOC, USR.ID as SubDomainSPOCID
+FROM LCMENGINEERING LCM JOIN lcmengineeringsubdomainspoc lcmsds ON LCM.LCMENGINEERINGID = lcmsds.LCMENGEENERINGID
+JOIN DesignComponents DC ON LCM.DESIGNCOMPONENTID = DC.DESIGNCOMPONENTID
+JOIN SystemTypes ST ON ST.SYSTEMTYPEID = DC.SYSTEMTYPEID
+JOIN SubDomainSPOCS SDS on SDS.SUBDOMAINSPOCID = lcmsds.SUBDOMAINSPOCID
+JOIN VERTICALRESPONSIBLES v on v.VerticalResponsibleid = ST.VerticalResponsibleid
+JOIN SubDomainResponsibles SDR on SDR.SUBDOMAINRESPONSIBLEID = ST.SUBDOMAINRESPONSIBLEID
+JOIN ASPNETUSERS USR ON upper(regexp_replace(USR.email,' ','')) = upper(regexp_replace(SDS.SubDomainSPOC,' ',''));
+
+--Validation Script
+Select LCMENGINEERINGID from LCMENGINEERING where LCMENGINEERINGID not in (Select LCMENGINEERINGID from lcmengineeringsubdomainspoc_MIGTEMP);
+Select * from lcmengineeringsubdomainspoc_MIGTEMP where ASPNETUSERID IS NULL;
+
+
+CREATE TABLE lcmengineeringEDUspoc_MIGTEMP(LCMENGINEERINGID NUMBER(19),OPCOID  NUMBER(5), DESIGNCOMPONENTID NUMBER(19),EDUSPOC NVARCHAR2(100),ASPNETUSERID NUMBER(19),VerticalResponsible NVARCHAR2(50),VerticalResponsibleid NUMBER(19), SubDomainResponsible NVARCHAR2(50), SubDomainResponsibleID NUMBER(19));
+INSERT INTO lcmengineeringEDUspoc_MIGTEMP (LCMENGINEERINGID,OPCOID,DESIGNCOMPONENTID,EDUSPOC,ASPNETUSERID,VerticalResponsible,VerticalResponsibleid,SubDomainResponsible,SubDomainResponsibleID)
+Select LCM.LCMENGINEERINGID, LCM.OPCOID,LCM.DesignComponentID,USR.EMAIL as EDUSPOC, USR.ID,v.VerticalResponsible,ST.VerticalResponsibleid, SDR.SubDomainResponsible, ST.SUBDOMAINRESPONSIBLEID
+FROM LCMENGINEERING LCM JOIN lcmengineeringsubdomainspoc lcmsds ON LCM.LCMENGINEERINGID = lcmsds.LCMENGEENERINGID
+JOIN DesignComponents DC ON LCM.DESIGNCOMPONENTID = DC.DESIGNCOMPONENTID
+JOIN SystemTypes ST ON ST.SYSTEMTYPEID = DC.SYSTEMTYPEID
+JOIN SubDomainSPOCS SDS on SDS.SUBDOMAINSPOCID = lcmsds.SUBDOMAINSPOCID
+JOIN VERTICALRESPONSIBLES v on v.VerticalResponsibleid = ST.VerticalResponsibleid
+JOIN SubDomainResponsibles SDR on SDR.SUBDOMAINRESPONSIBLEID = ST.SUBDOMAINRESPONSIBLEID
+JOIN ASPNETUSERS USR ON upper(regexp_replace(USR.email,' ','')) = upper(regexp_replace(SDS.SubDomainSPOC,' ',''));
+
+--Validation Script
+Select LCMENGINEERINGID from LCMENGINEERING where LCMENGINEERINGID not in (Select LCMENGINEERINGID from lcmengineeringsubdomainspoc_MIGTEMP); --No Records
+Select LCMENGINEERINGID FROM LCMENGINEERING WHERE LCMENGINEERINGID NOT IN (Select LCMENGINEERINGID FROM lcmengineeringEDUspoc_MIGTEMP);--No Records
+Select LCMENGINEERINGID, ASPNETUSERID, EDUSPOC FROM lcmengineeringEDUspoc_MIGTEMP WHERE ASPNETUSERID IS NULL;
+
+CREATE TABLE NETWORKELEMENTASPLANNEDSUBDOMAINSPOC_MIGTEMP(NETWORKELEMENTASPLANNEDID NUMBER(19),OPCOID  NUMBER(5),DESIGNCOMPONENTID NUMBER(19),SUBDOMAINSPOC NVARCHAR2(100),ASPNETUSERID NUMBER(19),VerticalResponsible NVARCHAR2(50),VerticalResponsibleid NUMBER(19), SubDomainResponsible NVARCHAR2(50), SubDomainResponsibleID NUMBER(19));
+
+INSERT INTO NETWORKELEMENTASPLANNEDSUBDOMAINSPOC_MIGTEMP(NETWORKELEMENTASPLANNEDID,OPCOID,DESIGNCOMPONENTID,SUBDOMAINSPOC,ASPNETUSERID,VerticalResponsible,VerticalResponsibleid,SubDomainResponsible,SubDomainResponsibleID)
+Select asset.NETWORKELEMENTASPLANNEDID, asset.OPCOID,asset.DesignComponentID,USR.EMAIL as SubDomainSPOC, USR.ID, v.VerticalResponsible, ST.VerticalResponsibleid, SDR.SubDomainResponsible, ST.SUBDOMAINRESPONSIBLEID
+FROM NETWORKELEMENTSASPLANNED asset JOIN NETWORKELEMENTASPLANNEDSUBDOMAINSPOC assetsds ON asset.NETWORKELEMENTASPLANNEDID = assetsds.NETWORKELEMENTASPLANNEDID
+JOIN DesignComponents DC ON asset.DESIGNCOMPONENTID = DC.DESIGNCOMPONENTID
+JOIN SystemTypes ST ON ST.SYSTEMTYPEID = DC.SYSTEMTYPEID
+JOIN SubDomainSPOCS SDS on SDS.SUBDOMAINSPOCID = assetsds.SUBDOMAINSPOCID
+JOIN VERTICALRESPONSIBLES v on v.VerticalResponsibleid = ST.VerticalResponsibleid
+JOIN SubDomainResponsibles SDR on SDR.SUBDOMAINRESPONSIBLEID = ST.SUBDOMAINRESPONSIBLEID
+JOIN ASPNETUSERS USR ON upper(regexp_replace(USR.email,' ','')) = upper(regexp_replace(SDS.SubDomainSPOC,' ','')); --1223 records not imported as it doesn't have DC Associaion.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---So, We can use the below script as well to update SUBDOMAINSPOC and EDU SPOC.
+
+ALTER TABLE NETWORKELEMENTASPLANNEDSUBDOMAINSPOC_migtemp ADD DESIGNCONTACTID VARCHAR2(100);
+ALTER TABLE NETWORKELEMENTASPLANNEDEDUSPOC_migtemp ADD DESIGNCONTACTID VARCHAR2(100);
+		
+---UPDATE FOR lcmengineeringsubdomainspoc_MIGTEMP	
+		MERGE INTO lcmengineeringsubdomainspoc_MIGTEMP TGT USING
+(SELECT
+            lsp.LCMENGINEERINGSUBDOMAINSPOCID,UR.ID
+        FROM
+                 lcmengineeringsubdomainspoc_MIGTEMP lsp
+            JOIN subdomainspocs sp ON lsp.subdomainspocid = sp.subdomainspocid
+            JOIN (SELECT * FROM aspnetusers where id not in
+(select id from (SELECT id ,EMAIL,ROW_NUMBER()OVER(PARTITION BY upper(regexp_replace(email,' ','')) ORDER BY ID ASC) rt
+FROM aspnetusers) where rt ^=1))    ur ON upper(regexp_replace(sp.SUBDOMAINSPOC,' ','')) = upper(regexp_replace(ur.email,' ',''))
+         ) SRC ON (TGT.LCMENGINEERINGSUBDOMAINSPOCID = SRC.LCMENGINEERINGSUBDOMAINSPOCID)
+         WHEN MATCHED THEN UPDATE SET TGT.DESIGNCONTACTID = SRC.ID;
+		 COMMIT;
+         
+		 
+SELECT * FROM lcmengineeringsubdomainspoc_MIGTEMP where DESIGNCONTACTID is null;
+
+
+---UPDATE FOR LCMENGINEERINGEDUSPOC_MIGTEMP	
+		MERGE INTO LCMENGINEERINGEDUSPOC_MIGTEMP TGT USING
+(SELECT
+            lsp.LCMENGINEERINGEDUSPOCID,UR.ID
+        FROM
+                 LCMENGINEERINGEDUSPOC_MIGTEMP lsp
+            JOIN subdomainspocs sp ON lsp.subdomainspocid = sp.subdomainspocid
+            JOIN (SELECT * FROM aspnetusers where id not in
+(select id from (SELECT id ,EMAIL,ROW_NUMBER()OVER(PARTITION BY upper(regexp_replace(email,' ','')) ORDER BY ID ASC) rt
+FROM aspnetusers) where rt ^=1))    ur ON upper(regexp_replace(sp.SUBDOMAINSPOC,' ','')) = upper(regexp_replace(ur.email,' ',''))
+         ) SRC ON (TGT.LCMENGINEERINGEDUSPOCID = SRC.LCMENGINEERINGEDUSPOCID)
+         WHEN MATCHED THEN UPDATE SET TGT.DESIGNCONTACTID = SRC.ID;
+		 
+COMMIT;
+
+SELECT * FROM LCMENGINEERINGEDUSPOC_MIGTEMP where DESIGNCONTACTID is null;
+
+
+
+---UPDATE FOR NETWORKELEMENTASPLANNEDSUBDOMAINSPOC_MIGTEMP	
+		MERGE INTO NETWORKELEMENTASPLANNEDSUBDOMAINSPOC_MIGTEMP TGT USING
+(SELECT
+            lsp.NTKELEMENTASPLNSUBDOMAINSPOCID,UR.ID
+        FROM
+                 NETWORKELEMENTASPLANNEDSUBDOMAINSPOC_MIGTEMP lsp
+            JOIN subdomainspocs sp ON lsp.subdomainspocid = sp.subdomainspocid
+            JOIN (SELECT * FROM aspnetusers where id not in
+(select id from (SELECT id ,EMAIL,ROW_NUMBER()OVER(PARTITION BY upper(regexp_replace(email,' ','')) ORDER BY ID ASC) rt
+FROM aspnetusers) where rt ^=1))    ur ON upper(regexp_replace(sp.SUBDOMAINSPOC,' ','')) = upper(regexp_replace(ur.email,' ',''))
+         ) SRC ON (TGT.NTKELEMENTASPLNSUBDOMAINSPOCID = SRC.NTKELEMENTASPLNSUBDOMAINSPOCID)
+         WHEN MATCHED THEN UPDATE SET TGT.DESIGNCONTACTID = SRC.ID;
+		 
+COMMIT;
+
+SELECT * FROM NETWORKELEMENTASPLANNEDSUBDOMAINSPOC_MIGTEMP where DESIGNCONTACTID is null;
+
+
+---UPDATE FOR NETWORKELEMENTASPLANNEDEDUSPOC_MIGTEMP	
+		MERGE INTO NETWORKELEMENTASPLANNEDEDUSPOC_MIGTEMP TGT USING
+(SELECT
+            lsp.NTKELEMENTASPLNEDUSPOCID,UR.ID
+        FROM
+                 NETWORKELEMENTASPLANNEDEDUSPOC_MIGTEMP lsp
+            JOIN subdomainspocs sp ON lsp.subdomainspocid = sp.subdomainspocid
+            JOIN (SELECT * FROM aspnetusers where id not in
+(select id from (SELECT id ,EMAIL,ROW_NUMBER()OVER(PARTITION BY upper(regexp_replace(email,' ','')) ORDER BY ID ASC) rt
+FROM aspnetusers) where rt ^=1))    ur ON upper(regexp_replace(sp.SUBDOMAINSPOC,' ','')) = upper(regexp_replace(ur.email,' ',''))
+         ) SRC ON (TGT.NTKELEMENTASPLNEDUSPOCID = SRC.NTKELEMENTASPLNEDUSPOCID)
+         WHEN MATCHED THEN UPDATE SET TGT.DESIGNCONTACTID = SRC.ID;
+		 
+COMMIT;
+
+SELECT * FROM NETWORKELEMENTASPLANNEDEDUSPOC_MIGTEMP where DESIGNCONTACTID is null;
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----Final Cleanup on LCM to align vertical and SubDomain Responsible
+-- INSERT INTO lcmengineeringEDUspoc_MIGTEMP (LCMENGINEERINGID,OPCOID,DESIGNCOMPONENTID,EDUSPOC,ASPNETUSERID,VerticalResponsible,VerticalResponsibleid,SubDomainResponsible,SubDomainResponsibleID)
+
+
+Select Distinct ASPNETUSERID,1,OPCOID,VerticalResponsibleid FROM lcmengineeringEDUspoc_MIGTEMP;
+
+CREATE TABLE lcmengineeringEDUspoc_DUPLICATES AS
+Select ASPNETUSERID,EMAIL, UR.OPCOID as OPCOID, OPCO, Count(UR.VerticalResponsibleid) AS NumberofVerticals
+FROM lcmengineeringEDUspoc_MIGTEMP MIG
+JOIN ASPNETUSERROLES UR ON ASPNETUSERID = USERID AND MIG.OpCoId = UR.OpCOID
+JOIN ASPNETUSERS USR on USR.ID = UR.USERID
+JOIN OPCOS op ON op.OpCoId = MIG.OPCOID
+GROUP BY ASPNETUSERID,EMAIL, UR.OPCOID, OPCO HAVING Count(UR.VerticalResponsibleid) > 1;
+
+
+Select Distinct ASPNETUSERID,EMAIL, OPCO, V.VerticalResponsible
+FROM lcmengineeringEDUspoc_MIGTEMP MIG
+JOIN ASPNETUSERROLES UR ON ASPNETUSERID = USERID AND MIG.OpCoId = UR.OpCOID
+JOIN ASPNETUSERS USR on USR.ID = UR.USERID
+JOIN OPCOS op ON op.OpCoId = MIG.OPCOID
+JOIN VerticalResponsibles v on v.VerticalResponsibleid = UR.VerticalResponsibleid
+WHERE ASPNETUSERID in (Select ASPNETUSERID FROM lcmengineeringEDUspoc_DUPLICATES)
+ORDER by EMAIL, OPCO
+
+
+Select Distinct MIG.EDUSPOC, op.OPCO, VerticalResponsible 
+from lcmengineeringEDUspoc_MIGTEMP MIG JOIN OPCOS op ON op.OPCOID = MIG.OPCOID
+Order by MIG.EDUSPOC ASC;
+
+----GROUP BY EDUSPOC, op.OPCO HAVING COUNT(VerticalResponsible) > 1;
+----Select EDUSPOC, OPCOID, Count(SubDomainResponsible) from lcmengineeringEDUspoc_MIGTEMP GROUP BY EDUSPOC, OPCOID HAVING COUNT(SubDomainResponsible) > 1;
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+delete from RESOURCEKEYMASTER;
+delete from DCFLIFECYCLE;
+update NETWORKELEMENTSASPLANNED set HWRESOURCEKEY = '', PREVIOUSHWRESOURCEKEY = '', SWRESOURCEKEY = '', PREVIOUSSWRESOURCEKEY = '' where 1=1;
+update lcmengineering set RESOURCEKEY = '', PREVIOUSRESOURCEKEY = '' where 1=1;
+update identitiesasis set RESOURCEKEY = '', PREVIOUSRESOURCEKEY = '' where 1=1;
+Commit;

@@ -1,0 +1,1 @@
+alter table deliverytrackings drop column activity

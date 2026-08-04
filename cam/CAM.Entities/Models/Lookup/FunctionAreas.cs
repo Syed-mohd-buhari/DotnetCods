@@ -1,0 +1,208 @@
+﻿using CAM.Entities.Models.Base;
+using OracleModels.DBModels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CAM.Entities.Models.Lookup
+{
+    [Table("Functionarea")]
+    public class FunctionAreas
+    {
+        public FunctionAreas()
+        {
+            Subfunctions = new HashSet<Subfunction>();
+        }
+        [Key]
+        public long Functionareaid { get; set; }
+        public long? Functionid { get; set; }
+        public bool? Deleted { get; set; }
+        public DateTime? Deletiondate { get; set; }
+        public string Areaname { get; set; }
+        public string Applicationname { get; set; }
+        public string Bordergatewayfunctionid { get; set; }
+        public string Callretentiontimer { get; set; }
+        public string Capacityforprioritycalls { get; set; }
+        public string Datetimeoffset { get; set; }
+        public string Directmediarouting { get; set; }
+        public string Dnprefix { get; set; }
+        public string Enableondemandscaling { get; set; }
+        public string Evssupportedinmrf { get; set; }
+        public string Failoverdetectiontimer { get; set; }
+        public string Id { get; set; }
+        public string Localdatetime { get; set; }
+        public string Locationname { get; set; }
+        public string Logicalname { get; set; }
+        public string Managedelementid { get; set; }
+        public string Managedelementtype { get; set; }
+        public string Managedelementtypelist { get; set; }
+        public string Mediaipversion { get; set; }
+        public string Mediaresourcefunctionid { get; set; }
+        public string Mmasid { get; set; }
+        public string Mtasfunctionblacklisttime { get; set; }
+        public string Mtasfunctionfulldiskpercentage { get; set; }
+        public string Mtasfunctioninvalidaddress { get; set; }
+        public string Mtasfunctionmaxsessionduration { get; set; }
+        public string Mtasfunctionmccmnc { get; set; }
+        public string Mtasfunctionnettraceversion { get; set; }
+        public string Mtasfunctionrestart { get; set; }
+        public string Mtasfunctionversion { get; set; }
+        public string Networkmanagedelementid { get; set; }
+        public string Netype { get; set; }
+        public string Platformtype { get; set; }
+        public string Release { get; set; }
+        public string Scaleinthreshold { get; set; }
+        public string Scaleoutthreshold { get; set; }
+        public string Scalingmonitorinterval { get; set; }
+        public string Shuttingdowntimer { get; set; }
+        public string Signalinglocalport { get; set; }
+        public string Signalingvlanid { get; set; }
+        public string Siteid { get; set; }
+        public string Sitelocation { get; set; }
+        public string Slaacinuse { get; set; }
+        public string Swversion { get; set; }
+        public string Systemfunctionsid { get; set; }
+        public string Timezone { get; set; }
+        public string Transcodingretention { get; set; }
+        public string Transportid { get; set; }
+        public string Userdefinedstate { get; set; }
+        public string Userlabel { get; set; }
+        public string Vendorname { get; set; }
+        public string Site { get; set; }
+        public string Spdh { get; set; }
+        public string Ipoamid { get; set; }
+        public string Sacmode { get; set; }
+        public string Miminfo { get; set; }
+        public string Mbacmode { get; set; }
+        public string Codinglaw { get; set; }
+        public string Dscpaudio { get; set; }
+        public string Javacafid { get; set; }
+        public string Ipsystemid { get; set; }
+        public string Tfoipemode { get; set; }
+        public string Dscpmarking { get; set; }
+        public string Equipmentid { get; set; }
+        public string Productname { get; set; }
+        public string Producttype { get; set; }
+        public string Ipbcpt1timer { get; set; }
+        public string Mbacthreshold { get; set; }
+        public string Ddbfunctionid { get; set; }
+        public string Dscfunctionid { get; set; }
+        public string Ipworksrootid { get; set; }
+        public string Productnumber { get; set; }
+        public string Dscpmultimedia { get; set; }
+        public string Lasthwpichange { get; set; }
+        public string Lastuppichange { get; set; }
+        public string Mrfcfunctionid { get; set; }
+        public string Mrfpfunctionid { get; set; }
+        public string Msprocessingid { get; set; }
+        public string Rtcponnbactive { get; set; }
+        public string Switchfabricid { get; set; }
+        public string Swmanagementid { get; set; }
+        public string Swserverurllist { get; set; }
+        public string Productrevision { get; set; }
+        public string Featurestateg722 { get; set; }
+        public string Islsupervisionid { get; set; }
+        public string Licensestateg722 { get; set; }
+        public string Licensestateipv6 { get; set; }
+        public string Licensestatemrfc { get; set; }
+        public string Mgwapplicationid { get; set; }
+        public string Mtasfunctionfqdn { get; set; }
+        public string Doclibuserdefined { get; set; }
+        public string Signallingproxyid { get; set; }
+        public string Healthcheckresult { get; set; }
+        public string Accesssignallingid { get; set; }
+        public string Licensecapacitybgf { get; set; }
+        public string Licensestatebgfevs { get; set; }
+        public string Licensestatemrfevs { get; set; }
+        public string Logonserveraddress { get; set; }
+        public string Transportnetworkid { get; set; }
+        public string Licensecapacitymrfp { get; set; }
+        public string Licensestatebgfatgw { get; set; }
+        public string Licensestatebgfipv6 { get; set; }
+        public string Licensestatebgfsrtp { get; set; }
+        public string Licensestatehdaudio { get; set; }
+        public string Licensestatemrfipv6 { get; set; }
+        public string Mbaclicensingstatus { get; set; }
+        public string Mbacweightingfactor { get; set; }
+        public string Sersupervisiontimer { get; set; }
+        public string Healthcheckschedule { get; set; }
+        public string Featurestatebgfsmsrp { get; set; }
+        public string Licensecapacityvideo { get; set; }
+        public string Licensestatebgfsmsrp { get; set; }
+        public string Managedelementdataid { get; set; }
+        public string Powersavemodeenabled { get; set; }
+        public string Speechactivityfactor { get; set; }
+        public string Documentserveraddress { get; set; }
+        public string Featurestatebgfwebrtc { get; set; }
+        public string Licensestatebgfwebrtc { get; set; }
+        public string Mtasfunctionmmtasname { get; set; }
+        public string Mtasfunctionsccasname { get; set; }
+        public string Ethernetswitchfabricid { get; set; }
+        public string Interactivemessagingid { get; set; }
+        public string Mbaccongestiondscpmode { get; set; }
+        public string Piugroupescalationtype { get; set; }
+        public string Saclowerthresholdalarm { get; set; }
+        public string Scclowerthresholdalarm { get; set; }
+        public string G711packetizationtimenb { get; set; }
+        public string G729lowerthresholdalarm { get; set; }
+        public string Mbaccongestiondscpvalue { get; set; }
+        public string Mbacmeasurementinterval { get; set; }
+        public string Sachigherthresholdalarm { get; set; }
+        public string Scchigherthresholdalarm { get; set; }
+        public string Voiplowerthresholdalarm { get; set; }
+        public string Policycontrolfunctionid { get; set; }
+        public string Amrwblowerthresholdalarm { get; set; }
+        public string Autoconfigurationallowed { get; set; }
+        public string G729higherthresholdalarm { get; set; }
+        public string Voiphigherthresholdalarm { get; set; }
+        public string Applicationconfiguration { get; set; }
+        public string Mtasfunctionnwfoiwasname { get; set; }
+        public string Mtasfunctionnwpriwasname { get; set; }
+        public string Amrwbhigherthresholdalarm { get; set; }
+        public string Licensecapacityvoicetrans { get; set; }
+        public string Minimumhdvolumecfreespace { get; set; }
+        public string Featurestatecontentsharing { get; set; }
+        public string Intermittentfaultthreshold { get; set; }
+        public string Licensestatecontentsharing { get; set; }
+        public string Maxbandwidthforiptransport { get; set; }
+        public string Featurestatedtmfsuppression { get; set; }
+        public string Featurestatemscpoolproxygsm { get; set; }
+        public string Licensecapacityhdvoicetrans { get; set; }
+        public string Licensestatebgfprioritycall { get; set; }
+        public string Licensestatemrfprioritycall { get; set; }
+        public string Featurestatevoicetranscoding { get; set; }
+        public string Rtcpbearersupervisiontimermb { get; set; }
+        public string Rtcpbearersupervisiontimernb { get; set; }
+        public string Cappercentreservedforwpscalls { get; set; }
+        public string Featurestatemscpoolproxywcdma { get; set; }
+        public string Explicitcongestionnotification { get; set; }
+        public string Mbaclostpacketscalculationmode { get; set; }
+        public string Rtcpbearersupervisiontimeraoip { get; set; }
+        public string Rtcpbearersupervisiontimervoip { get; set; }
+        public string Licensecapacityaudioconference { get; set; }
+        public string Licensecapacityvideoconference { get; set; }
+        public string Licensecapacityhdvidoconfernce { get; set; }
+        public string MtasVtpadminState { get; set; }
+        public string MtasFulldiskpercentage { get; set; }
+        public string MtasAdministrativestate { get; set; }
+        public string MtasMaxsessionduration { get; set; }
+        public string MtasNotfulldiskpercentage { get; set; }
+        public string MtasMaxnumofsesionsaction { get; set; }
+        public string MtasMaxnumofsessions { get; set; }
+        public string MtasMaxnumsubscriptsesion { get; set; }
+        public string MtasScalingterminatwaitime { get; set; }
+        public string MtasAdminStateafterrestrt { get; set; }
+        public string Creationuser { get; set; }
+        public DateTime Creationdate { get; set; }
+        public string Modificationuser { get; set; }
+        public DateTime Modificationdate { get; set; }
+
+        public virtual Function Function { get; set; }
+        public virtual ICollection<Subfunction> Subfunctions { get; set; }
+
+    }
+}

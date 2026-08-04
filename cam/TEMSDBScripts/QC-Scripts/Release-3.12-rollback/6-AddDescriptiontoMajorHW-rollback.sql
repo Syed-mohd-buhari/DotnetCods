@@ -1,0 +1,2 @@
+﻿ALTER TABLE MAJORHARDWAREBUILDS
+drop column "Description";

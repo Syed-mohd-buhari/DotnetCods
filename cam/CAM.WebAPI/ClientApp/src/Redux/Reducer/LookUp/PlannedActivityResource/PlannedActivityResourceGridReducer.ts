@@ -1,0 +1,27 @@
+import { LookUpGridPlannedActivityResource } from "../../../../Model/LookUp/PlannedActivityResource"
+// import {initState} from '../ActivityStatus/ActivityStatusGridReducer'
+
+const initState: LookUpGridPlannedActivityResource = {
+     LookUpGridResult: null,
+     LookUpGridResultAll: null,
+     filter: null,
+ }
+
+
+
+export const PlannedActivityResourceGridReducer = (state = initState, action: { type: string, payload: LookUpGridPlannedActivityResource }) => {
+    switch (action.type) {
+        case "GET_GRID_PLANNED_ACTIVITY_RESOURCE":
+            {
+                return { ...state, LookUpGridResult: action.payload.LookUpGridResult }
+            }
+        case "GET_GRID_PLANNED_ACTIVITY_RESOURCE_ALL":
+            {
+                return { ...state, LookUpGridResultAll: action.payload.LookUpGridResult }
+            }
+        case "GET_FILTER_PLANNED_ACTIVITY_RESOURCE":
+            return { ...state, filter: action.payload.filter }
+        default:
+            return state;
+    }
+}

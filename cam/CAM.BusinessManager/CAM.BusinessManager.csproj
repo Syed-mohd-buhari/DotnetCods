@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Version>1.30.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Model\**" />
+	  <EmbeddedResource Remove="Model\**" />
+	  <None Remove="Model\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="MapConfiguration\PlaftformMigrationMapper.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="EntityFramework.Functions" Version="1.5.0" />
+		<PackageReference Include="EPPlus" Version="6.2.8" />
+		<PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="6.1.4" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+		<PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.3.2" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CAM.Contracts\CAM.Contracts.csproj" />
+		<ProjectReference Include="..\CAM.DataTransferObjects\CAM.DataTransferObjects.csproj" />
+		<ProjectReference Include="..\CAM.Exports\CAM.Exports.csproj" />
+		<ProjectReference Include="..\CAM.Mail\CAM.Mail.csproj" />
+		<ProjectReference Include="..\CAM.Repository\CAM.Repository.csproj" />
+		<ProjectReference Include="..\CAM.ResourceKey\CAM.ResourceKey.csproj" />
+
+	</ItemGroup>
+
+</Project>

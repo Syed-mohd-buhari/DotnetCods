@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>TEMSDBScripts</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b1083b0d-63ad-4ff6-8f09-528028f8b649}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>TEMSDBScripts</RootNamespace>
+    <AssemblyName>TEMSDBScripts</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>false</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Prod-Scripts" />
+    <Folder Include="QC-Scripts" />
+    <Folder Include="QC-Scripts\CR001 Subnetwork Boundry" />
+    <Folder Include="QC-Scripts\Design-Aspects" />
+    <Folder Include="QC-Scripts\Optimization2B" />
+    <Folder Include="QC-Scripts\PAT" />
+    <Folder Include="QC-Scripts\QC Release 3.6" />
+    <Folder Include="QC-Scripts\Release 2.0" />
+    <Folder Include="QC-Scripts\Release 2.2" />
+    <Folder Include="QC-Scripts\Release 3.7 phase 1" />
+    <Folder Include="QC-Scripts\Release1.39.1 -EOM" />
+    <Folder Include="QC-Scripts\Release-3.10" />
+    <Folder Include="QC-Scripts\Release-3.10.0.6" />
+    <Folder Include="QC-Scripts\Release-3.10.0b" />
+    <Folder Include="QC-Scripts\Release-3.10.0d" />
+    <Folder Include="QC-Scripts\Release-3.11.1" />
+    <Folder Include="QC-Scripts\Release-3.11.2" />
+    <Folder Include="QC-Scripts\Release3.11.1.2" />
+    <Folder Include="QC-Scripts\Release-3.11.1.4" />
+    <Folder Include="QC-Scripts\Release-3.12" />
+    <Folder Include="QC-Scripts\Release-3.8" />
+    <Folder Include="QC-Scripts\Release-3.9" />
+    <Folder Include="QC-Scripts\Release-3.9.2" />
+    <Folder Include="QC-Scripts\Release-3.12-rollback" />
+    <Folder Include="QC-Scripts\Release-3.11.2-rollback" />
+    <Folder Include="QC-Scripts\Release-3.12.2" />
+    <Folder Include="QC-Scripts\Release 3.14" />
+    <Folder Include="QC-Scripts\Release-3.15" />
+    <Folder Include="QC-Scripts\Release 3.13 Sandhata Scripts" />
+    <Folder Include="QC-Scripts\Release-3.17" />
+    <Folder Include="QC-Scripts\Release-3.16" />
+    <Folder Include="QC-Scripts\Release-3.18" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QC-Scripts\Design-Aspects\DA-PlannedActivity.sql" />
+    <None Include="QC-Scripts\Design-Aspects\DA-PlannedActivity.sql" />
+    <None Include="QC-Scripts\Optimization2B\LcmEngineering.sql" />
+    <None Include="QC-Scripts\CR001 Subnetwork Boundry\1-7.1 SupportedServices.sql" />
+    <None Include="QC-Scripts\Release-3.9\2-adding_columns_to_plannedactivities.sql" />
+    <None Include="QC-Scripts\Release-3.8\3-delete-locationtype-from-location.sql" />
+    <None Include="QC-Scripts\Release-3.9\3-add-asset-flags-to-PA-resources.sql" />
+    <None Include="QC-Scripts\Release-3.9\4-data-migration-remove-old-fields-from-PA-resource.sql" />
+    <None Include="QC-Scripts\Release-3.9\5-adding-SOFTWAREAPPLICATIONTYPES-table.sql" />
+    <None Include="QC-Scripts\Release-3.9\6-adding-software-application-name-to-SW.sql" />
+    <None Include="QC-Scripts\Release-3.9\7-adding-critical-asset-type-to-majorsoftwarebuild.sql" />
+    <None Include="QC-Scripts\Release-3.9\9-adding-software-application-type-id-to-designcomponent-family.sql" />
+    <None Include="QC-Scripts\Release-3.9\11-adding-vodafonename-to-softwareapplicationtype.sql" />
+    <None Include="QC-Scripts\Release-3.9\10-vodafone-name-table.sql" />
+    <None Include="QC-Scripts\Release-3.9\12-adding-vodafonename-to-system-type.sql" />
+    <None Include="QC-Scripts\Release-3.9.2\add-VF-Name-Id-To-Subnetworkboundary.sql" />
+    <None Include="QC-Scripts\Release-3.9.2\Update-VF-name-Description-type.sql" />
+    <None Include="QC-Scripts\ResetGridTableContentToDefaultTemplate.sql" />
+    <None Include="QC-Scripts\Release-3.10\adding-UsersLoggingTable.sql" />
+    <None Include="QC-Scripts\Release-3.10.0b\Reset-Grids.sql" />
+    <None Include="QC-Scripts\Release-3.10.0d\addFULLORPARTIALSUPPORTHWIDtoLCM.sql" />
+    <None Include="QC-Scripts\Release-3.10.0.6\LcmChanges.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\LcmChanges.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\PlannedActivityChanges.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\DesignAspects.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\ResetGrids.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\1-adding-LCMDEPLOYMENTSTATUS-table.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\2-adding-foreign-key-lcmdeploymentstatus-to-lcm-table.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\4-adding-table-setting-update-planned-activity-lcm-deployment-status.sql" />
+    <None Include="QC-Scripts\Release3.11.1.2\Reset-Grids.sql" />
+    <None Include="QC-Scripts\Release3.11.1.2\MajorSWBuild-NetworkFunction.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\7-adding-foreign-key-assetdeploymentstatus-to-setting-update-pa.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\8-adding-PA-Type-for-to-setting-PA.sql" />
+    <None Include="QC-Scripts\Design-Aspects\DA-PlannedActivity.sql" />
+    <None Include="QC-Scripts\Optimization2B\LcmEngineering.sql" />
+    <None Include="QC-Scripts\CR001 Subnetwork Boundry\1-7.1 SupportedServices.sql" />
+    <None Include="QC-Scripts\Release-3.9\2-adding_columns_to_plannedactivities.sql" />
+    <None Include="QC-Scripts\Release-3.8\3-delete-locationtype-from-location.sql" />
+    <None Include="QC-Scripts\Release-3.9\3-add-asset-flags-to-PA-resources.sql" />
+    <None Include="QC-Scripts\Release-3.9\4-data-migration-remove-old-fields-from-PA-resource.sql" />
+    <None Include="QC-Scripts\Release-3.9\5-adding-SOFTWAREAPPLICATIONTYPES-table.sql" />
+    <None Include="QC-Scripts\Release-3.9\6-adding-software-application-name-to-SW.sql" />
+    <None Include="QC-Scripts\Release-3.9\7-adding-critical-asset-type-to-majorsoftwarebuild.sql" />
+    <None Include="QC-Scripts\Release-3.9\9-adding-software-application-type-id-to-designcomponent-family.sql" />
+    <None Include="QC-Scripts\Release-3.9\11-adding-vodafonename-to-softwareapplicationtype.sql" />
+    <None Include="QC-Scripts\Release-3.9\10-vodafone-name-table.sql" />
+    <None Include="QC-Scripts\Release-3.9\12-adding-vodafonename-to-system-type.sql" />
+    <None Include="QC-Scripts\Release-3.9.2\add-VF-Name-Id-To-Subnetworkboundary.sql" />
+    <None Include="QC-Scripts\Release-3.9.2\Update-VF-name-Description-type.sql" />
+    <None Include="QC-Scripts\ResetGridTableContentToDefaultTemplate.sql" />
+    <None Include="QC-Scripts\Release-3.10\adding-UsersLoggingTable.sql" />
+    <None Include="QC-Scripts\Release-3.10.0b\Reset-Grids.sql" />
+    <None Include="QC-Scripts\Release-3.10.0d\addFULLORPARTIALSUPPORTHWIDtoLCM.sql" />
+    <None Include="QC-Scripts\Release-3.10.0.6\LcmChanges.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\LcmChanges.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\PlannedActivityChanges.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\DesignAspects.sql" />
+    <None Include="QC-Scripts\Release-3.11.1\ResetGrids.sql" />
+    <None Include="QC-Scripts\Release3.11.1.2\Reset-Grids.sql" />
+    <None Include="QC-Scripts\Release3.11.1.2\MajorSWBuild-NetworkFunction.sql" />
+    <None Include="QC-Scripts\Release-3.12\3-transfering-data-from-softwareapplicationtype-to-productname.sql" />
+    <None Include="QC-Scripts\Release-3.12\5-drop-table-softwareapplicationtypes.sql" />
+    <None Include="QC-Scripts\Release-3.12\AddCreationDateToASPNETUSERSROLES.sql" />
+    <None Include="QC-Scripts\Release-3.12-rollback\2-CreateProductNameTable-rollback.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\9-update-old-lcm-deployment-status.sql" />
+    <None Include="QC-Scripts\Release 3.14\5-lcm-db-export-last-update-date.sql" />
+    <None Include="QC-Scripts\Release-3.17\ResetGrids.sql" />
+    <None Include="QC-Scripts\Release-3.17\AddLCMEXPORTSETTINGTable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="QC-Scripts\CR001 Subnetwork Boundry\1-7.1 SupportedServices.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\AUTHENICATIONTYPES.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\CriticalAssetTypes.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\CustomerWheels.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DA-PlannedActivity.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DC.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DCF.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DCF-CustomerWheel.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DCF-NetworkFunctions.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DesignAspects.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DESIGNASPECTSNETWORKFUNCTIONS.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\DESIGNASPECTSSUPPORTEDSVR.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\GEORESILIENCE.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\INSTANCERESILIENCE.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\LicenseModel.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\NetworkFunctions.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\SECURITYMANAGER.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\SITERESILIENCE.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\SubNetworkBoundries.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\SUBNETWORKSUPPORTEDSVR.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\SupportedServices.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\SWDELIVERYLIFECYCLE.sql" />
+    <Build Include="QC-Scripts\Design-Aspects\ThirdPartyAccessType.sql" />
+    <Build Include="QC-Scripts\Optimization2B\LcmEngineering.sql" />
+    <Build Include="QC-Scripts\Optimization2B\LCMOperationContract.sql" />
+    <Build Include="QC-Scripts\Optimization2B\OperationContract.sql" />
+    <Build Include="QC-Scripts\PAT\PAT.sql" />
+    <Build Include="QC-Scripts\QC Release 3.6\Subnetwork Boundry Changes.sql" />
+    <Build Include="QC-Scripts\Release 2.0\Release2.0DBScript.sql" />
+    <Build Include="QC-Scripts\Release 2.2\Release2.2DBScript.sql" />
+    <Build Include="QC-Scripts\Release 3.7 phase 1\SubNetworkBoundary.sql" />
+    <Build Include="QC-Scripts\Release1.39.1 -EOM\EOMDBScript.sql" />
+    <Build Include="QC-Scripts\Release-3.10\adding-UsersLoggingTable.sql" />
+    <Build Include="QC-Scripts\Release-3.10.0.6\LcmChanges.sql" />
+    <Build Include="QC-Scripts\Release-3.10.0b\Reset-Grids.sql" />
+    <Build Include="QC-Scripts\Release-3.10.0d\addFULLORPARTIALSUPPORTHWIDtoLCM.sql" />
+    <Build Include="QC-Scripts\Release-3.11.1\DesignAspects.sql" />
+    <Build Include="QC-Scripts\Release-3.11.1\LcmChanges.sql" />
+    <Build Include="QC-Scripts\Release-3.11.1\PlannedActivityChanges.sql" />
+    <Build Include="QC-Scripts\Release-3.11.1\ResetGrids.sql" />
+    <Build Include="QC-Scripts\Release3.11.1.2\MajorSWBuild-NetworkFunction.sql" />
+    <Build Include="QC-Scripts\Release3.11.1.2\Reset-Grids.sql" />
+    <Build Include="QC-Scripts\Release-3.11.1.4\ResetGridTableContentToDefaultTemplate.sql" />
+    <Build Include="QC-Scripts\Release-3.8\1-drop-columns-of-dcf.sql" />
+    <Build Include="QC-Scripts\Release-3.8\2-add-locationdeploymenttypes-table.sql" />
+    <Build Include="QC-Scripts\Release-3.8\3-delete-locationtype-from-location.sql" />
+    <Build Include="QC-Scripts\Release-3.9\10-vodafone-name-table.sql" />
+    <Build Include="QC-Scripts\Release-3.9\11-adding-vodafonename-to-softwareapplicationtype.sql" />
+    <Build Include="QC-Scripts\Release-3.9\12-adding-vodafonename-to-system-type.sql" />
+    <Build Include="QC-Scripts\Release-3.9\1-adding-edu-subdomain-columns.sql" />
+    <None Include="QC-Scripts\Release-3.9\8-adding-software-application-name-to-subnetwork-boundary.sql" />
+    <None Include="QC-Scripts\Release-3.11.1.4\ResetGridTableContentToDefaultTemplate.sql" />
+    <Build Include="QC-Scripts\Release-3.12\1-RENAME COLUMN SOFTWAREAPPLICATIONTYPEID TO PRODUCTNAMEID_.sql" />
+    <Build Include="QC-Scripts\Release-3.12\2-create-product-name-table.sql" />
+    <Build Include="QC-Scripts\Release-3.12\4-add-relations-with-other-tables-related-to-productname-table.sql" />
+    <Build Include="QC-Scripts\Release-3.9\2-adding_columns_to_plannedactivities.sql" />
+    <Build Include="QC-Scripts\Release-3.9\3-add-asset-flags-to-PA-resources.sql" />
+    <Build Include="QC-Scripts\Release-3.9\4-data-migration-remove-old-fields-from-PA-resource.sql" />
+    <Build Include="QC-Scripts\Release-3.9\5-adding-SOFTWAREAPPLICATIONTYPES-table.sql" />
+    <Build Include="QC-Scripts\Release-3.9\6-adding-software-application-name-to-SW.sql" />
+    <Build Include="QC-Scripts\Release-3.9\7-adding-critical-asset-type-to-majorsoftwarebuild.sql" />
+    <Build Include="QC-Scripts\Release-3.9\8-adding-software-application-name-to-subnetwork-boundary.sql" />
+    <Build Include="QC-Scripts\Release-3.9\9-adding-software-application-type-id-to-designcomponent-family.sql" />
+    <Build Include="QC-Scripts\Release-3.9.2\add-VF-Name-Id-To-Subnetworkboundary.sql" />
+    <Build Include="QC-Scripts\Release-3.9.2\Update-VF-name-Description-type.sql" />
+    <Build Include="QC-Scripts\ResetGridTableContentToDefaultTemplate.sql" />
+    <None Include="QC-Scripts\Release-3.9\8-adding-software-application-name-to-subnetwork-boundary.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\3-adding-foreign-key-plannedactivityresource-to-Settingupdateplannedactivity-table.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\5-adding-foreign-key-SuccessorPlannedActivityTypeResource-to-Settingupdateplannedactivity-table.sql.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\6-adding-RULEFORSUCCESSORPLANNEDACTIVITYCREATION -to-Settingupdateplannedactivity-table.sql.sql" />
+    <None Include="QC-Scripts\Release-3.11.1.4\ResetGridTableContentToDefaultTemplate.sql" />
+    <None Include="QC-Scripts\Release-3.11.2\ResetGridTableContentToDefaultTemplate.sql" />
+    <Build Include="QC-Scripts\Release-3.12\AddDescriptiontoMajorHW.sql" />
+    <None Include="QC-Scripts\Release-3.12\ResetGridTableContentToDefaultTemplate.sql" />
+    <Build Include="QC-Scripts\Release-3.12-rollback\1-RENAME COLUMN SOFTWAREAPPLICATIONTYPEID TO PRODUCTNAMEID_RollBack.sql" />
+    <Build Include="QC-Scripts\Release-3.12-rollback\3-transfering-data-from-softwareapplicationtype-to-productname-rollback.sql" />
+    <Build Include="QC-Scripts\Release-3.12-rollback\5-drop-table-softwareapplicationtypes-rollback.sql" />
+    <Build Include="QC-Scripts\Release-3.12-rollback\4-add-relations-with-other-tables-related-to-productname-table-rollback.sql" />
+    <Build Include="QC-Scripts\Release-3.12-rollback\ResetGridTableContentToDefaultTemplate.sql" />
+    <Build Include="QC-Scripts\Release-3.12-rollback\6-AddDescriptiontoMajorHW-rollback.sql" />
+    <Build Include="QC-Scripts\Release-3.12\7-RenameSiteResilienceMethodToBusinessContinuityMethod-rollback.sql" />
+    <Build Include="QC-Scripts\Release-3.12-rollback\RenameSiteResilienceMethodToBusinessContinuityMethod.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\2-adding-foreign-key-lcmdeploymentstatus-to-lcm-table-rollback.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\3-adding-foreign-key-plannedactivityresource-to-Settingupdateplannedactivity-table-rollback.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\4-adding-table-setting-update-planned-activity-lcm-deployment-status-rollback.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\5-adding-foreign-key-SuccessorPlannedActivityTypeResource-to-Settingupdateplannedactivity-table-rollback.sql.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\6-adding-RULEFORSUCCESSORPLANNEDACTIVITYCREATION -to-Settingupdateplannedactivity-table-rollback.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\7-adding-foreign-key-assetdeploymentstatus-to-setting-update-pa-rollback.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\8-adding-PA-Type-for-to-setting-PA-rollback.sql" />
+    <None Include="QC-Scripts\Release-3.11.2-rollback\9-adding-LCMDEPLOYMENTSTATUS-table-rollback.sql" />
+    <Build Include="QC-Scripts\Release-3.12.2\IncreaseSizeOfVerticalResponsibleAndSubDomainResponisible.sql" />
+    <None Include="QC-Scripts\Release 3.14\6-Lcm-R8-Phase1-Added-Fields.sql" />
+    <Build Include="QC-Scripts\Release 3.14\1-AddCategoriesTable.sql" />
+    <Build Include="QC-Scripts\Release 3.14\2-AddClassesTable.sql" />
+    <Build Include="QC-Scripts\Release 3.14\3-AddTypesTable.sql" />
+    <Build Include="QC-Scripts\Release 3.14\4-AddIdentitiesTable.sql" />
+    <Build Include="QC-Scripts\Release 3.14\7-AddDeliveryTracking.sql" />
+    <Build Include="QC-Scripts\Release-3.15\AddRelationBetweenAssetsAndLcm.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\00_RB_Scripts.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\01_networkelement.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\02_identities.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\03_hardwareconfigurations.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\04_softwarecomponent.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\05_component.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\06_SoftwareConfiguration.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\07_Function.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\08_FunctionArea.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\09_SubFunction.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\10_SubFunctionArea.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\11_SubFunctionArea2.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\12_XMLPARSERUN.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\13_NODEPARSEHISTORY.sql" />
+    <Build Include="QC-Scripts\Release 3.13 Sandhata Scripts\14_AuditHistory.sql" />
+    <Build Include="QC-Scripts\Release-3.17\AddProgramAndProjectOwnerToPA.sql" />
+    <Build Include="QC-Scripts\Release-3.17\DropActivityInDeliveryTrackings.sql" />
+    <Build Include="QC-Scripts\Release-3.16\1.Alter_NetworkElementAsis.sql" />
+    <Build Include="QC-Scripts\Release-3.16\10.Alter_networkelementasplanned.sql" />
+    <Build Include="QC-Scripts\Release-3.16\11.Update_LCM_Asset_ResourceKey.sql" />
+    <Build Include="QC-Scripts\Release-3.16\12.Alter_HardwareConfiguration.sql" />
+    <Build Include="QC-Scripts\Release-3.16\13.Create_DCFLifeCycle.sql" />
+    <Build Include="QC-Scripts\Release-3.16\2.Create_Resourcetypes.sql" />
+    <Build Include="QC-Scripts\Release-3.16\3.Insert_ResourceType.sql" />
+    <Build Include="QC-Scripts\Release-3.16\4.Create_Resourcekeymater.sql" />
+    <Build Include="QC-Scripts\Release-3.16\5.ResourceKeyMaster_LCM_Sync.sql" />
+    <Build Include="QC-Scripts\Release-3.16\6.Function_GenerateRandomString.sql" />
+    <Build Include="QC-Scripts\Release-3.16\7.Procedure_ResourcekeyUpdate_RESOURCEKEYMASTER.sql" />
+    <Build Include="QC-Scripts\Release-3.16\8.Alter_LCMEngineering.sql" />
+    <Build Include="QC-Scripts\Release-3.16\9.Update_Resourcekey_RESOURCEKEYMASTER.sql" />
+    <Build Include="QC-Scripts\Release-3.18\01_Alter_DcfLifeCycle.sql" />
+    <Build Include="QC-Scripts\Release-3.18\02_ResourceKey_Cleanup.sql" />
+    <Build Include="QC-Scripts\Release-3.18\03_LCM_to_Resourcekeymaster.sql" />
+    <Build Include="QC-Scripts\Release-3.18\04_Update_ResourceKey_Resourcekeymaster.sql" />
+    <Build Include="QC-Scripts\Release-3.18\05.Update_LCM_Asset_ResourceKey.sql" />
+  </ItemGroup>
+</Project>

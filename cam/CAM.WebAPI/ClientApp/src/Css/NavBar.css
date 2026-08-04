@@ -1,0 +1,121 @@
+.navBarContainer {
+  color: "#fff";
+  min-height: 55px;
+  background-color: #e60000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+div.navLink > a {
+  color: #fff !important;
+}
+
+a.navLink {
+  color: #fff !important;
+}
+
+a.nav-link {
+  color: grey;
+  outline: none;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border: none;
+  outline: none;
+}
+
+a.nav-item.nav-link.active {
+  border: none;
+  border-bottom: 2px solid #e60000 !important;
+}
+
+a.navBarLink.active {
+  background-color: #fff;
+  color: #000;
+}
+
+.camRed {
+  color: #e60000;
+}
+
+.camGrey {
+  color: #444;
+}
+
+button.btnNavBar {
+  border: none;
+  width: 26px;
+  height: 26px;
+}
+
+button.btnNavBar > img {
+  max-width: 22px;
+}
+
+a.navHome {
+  min-height: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #000;
+}
+
+a.navHome:hover {
+  text-decoration: none;
+  border-bottom: 2px solid #e60000;
+}
+
+a.navHome.active {
+  border-bottom: 2px solid #e60000;
+  color: #e60000 !important;
+}
+
+/* BOOTSTRAP OVERWRITE */
+button.btn-danger {
+  background-color: #d90000 !important;
+  border-radius: 32px;
+}
+
+img.infoIcon {
+  height: 16px;
+}
+
+span.headerText {
+  font-size: 1.8em;
+}
+
+button.btnBack {
+  height: 30px;
+  width: 30px;
+}
+
+button.btnBack > img {
+  height: 28px;
+}
+
+.myButtonNav {
+  border: none;
+  outline: none;
+}
+
+.myButtonNav:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.myNavDropDownElement:hover {
+  background-color: #e60000;
+  color: #fff;
+}
+
+.myNavDropDownElement.disabled {
+  color: #6c757d;
+}
+
+.navbar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

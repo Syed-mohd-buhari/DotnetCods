@@ -1,0 +1,11 @@
+--------------------------------------------------------
+--  Alter  PLANNEDACTIVITYTYPES Table
+--------------------------------------------------------
+
+Alter TABLE PLANNEDACTIVITYTYPES  drop COLUMN 	"FORLCM"   ; 
+Alter TABLE PLANNEDACTIVITYTYPES  drop COLUMN 	 "FORASSET" ; 
+Alter TABLE PLANNEDACTIVITYTYPES  drop COLUMN 	 "FORDESIGNASPECT" ; 
+ 
+COMMIT;
+  
+

@@ -1,0 +1,281 @@
+/* ============================================================
+   LoginPage.css — All styles extracted from inline JSX
+   ============================================================ */
+
+/* ---------- Page wrapper ---------- */
+.login-page-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* ---------- Background image ---------- */
+.login-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ---------- Main content row ---------- */
+.login-content-row {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(60px, 10vw, 271px);
+  padding: 0 clamp(20px, 5vw, 80px);
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+}
+
+/* ---------- Left branding panel ---------- */
+.login-branding {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 0 auto;
+  max-width: 446px;
+}
+
+.login-logo-wrap {
+  margin-bottom: 8px;
+}
+
+.login-logo {
+  width: 137px;
+  height: auto;
+}
+
+.login-title {
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 45px);
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.login-subtitle {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #ffffff;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ---------- Login card ---------- */
+.login-card {
+  display: flex;
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 50px;
+  gap: 24px;
+  width: clamp(320px, 40vw, 661px);
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* ---------- Welcome heading ---------- */
+.login-welcome {
+  font-weight: 700;
+  font-size: clamp(28px, 2.5vw, 40px);
+  line-height: 1.8;
+  text-align: center;
+  color: #0d0d0d;
+  margin: 0;
+  width: 100%;
+}
+
+/* ---------- Divider row ---------- */
+.login-divider-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.login-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(145, 145, 145, 0.5);
+}
+
+.login-divider-label {
+  font-size: 16px;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* ---------- Login method buttons row ---------- */
+.login-method-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Base method button */
+.login-method-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #ffffff;
+  box-shadow: 0px 2.5px 10px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 68px;
+}
+
+.login-method-btn--active {
+  background: #565656;
+}
+
+.login-method-btn__icon {
+  width: 28px;
+  height: 28px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.login-method-btn--active .login-method-btn__icon {
+  color: #ffffff;
+}
+
+/* Local user icon is full-opacity when inactive */
+.login-method-btn--local .login-method-btn__icon {
+  color: #0d0d0d;
+}
+
+.login-method-btn--local.login-method-btn--active .login-method-btn__icon {
+  color: #ffffff;
+}
+
+.login-method-btn__label {
+  font-weight: 400;
+  font-size: 20px;
+  color: #0d0d0d;
+  white-space: nowrap;
+}
+
+.login-method-btn--active .login-method-btn__label {
+  color: #fefefe;
+}
+
+/* ---------- Form ---------- */
+.login-form {
+  width: 100%;
+}
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* ---------- Field group ---------- */
+.login-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-field__label {
+  font-weight: 400;
+  font-size: 16.3px;
+  line-height: 28px;
+  color: #0d0d0d;
+}
+
+/* Username input wrapper (has the red dot) */
+.login-field__input-wrap {
+  position: relative;
+}
+
+.login-field__input {
+  width: 100%;
+  height: 43px;
+  padding: 11px 30px 10px 16px;
+  background: #ffffff;
+  border: 1px solid #7e7e7e;
+  border-radius: 6px;
+  font-size: 17px;
+  color: #000000;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Password input (no dot, slightly shorter) */
+.login-field__input--password {
+  height: 42px;
+  padding: 11px 16px 10px;
+}
+
+/* Red required dot */
+.login-field__required-dot {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff0000;
+  display: inline-block;
+  pointer-events: none;
+}
+
+/* ---------- Login submit button ---------- */
+.login-submit-btn {
+  width: 100%;
+  height: 44px;
+  background: #e60000;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 32px;
+  transition: background 0.2s ease;
+  box-sizing: border-box;
+  margin-top: 16px;
+}
+
+.login-submit-btn:hover:not(:disabled) {
+  background: #cc0000;
+}
+
+.login-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-submit-btn__text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #ffffff;
+  text-align: center;
+}

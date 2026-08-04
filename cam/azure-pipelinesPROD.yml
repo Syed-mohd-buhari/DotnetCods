@@ -1,0 +1,247 @@
+trigger:
+ batch: true
+ branches:
+    include:
+      - master
+      - QC-Release-*
+ tags:
+    include:
+      - TestVersion2.0
+
+ paths:
+    include:
+         - CAMS-SourceCode
+    exclude:
+         -  CAMS-SourceCode/TEMSDBScripts
+         -  CAMS-SourceCode/OracleModels
+         - '**/*.sqlproj'
+ 
+pool:
+  vmImage: 'ubuntu-latest'
+ 
+variables:
+  projectKey: 'vfuk-csenablers'
+  Nodeversion: '18.x'
+  ClientAppFolder: 'CAM.WebAPI/ClientApp'
+  sonarQubeInstance: 'TEMSSonarQube'
+  sonarScannerMode: 'CLI'
+  sonarJDKVersion: 'JAVA_HOME_11_X64'
+  archiveRootFolder: '$(BuildDirectory)/build/'
+  archiveFileName: 'build_$(Build.BuildId).zip'
+  solution: '**/*.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  excludeProjects: '**/TEMSDBScripts/*.csproj'
+  version : $(Build.SourceBranchName)
+ 
+ 
+stages:
+  - stage: Build_NodeJS
+    displayName: 'Build Stage for Node.js'
+    dependsOn: []
+ 
+    jobs:
+      - job: Build
+        displayName: 'Build Job for Node.js'
+ 
+        pool:
+          vmImage: 'ubuntu-latest'
+ 
+        steps:
+          - checkout: self
+ 
+          - script: |
+              echo "Listing contents of $(Build.SourcesDirectory):"
+              ls -laR $(Build.SourcesDirectory)
+              echo "Listing contents of $(Build.SourcesDirectory)/$(ClientAppFolder):"
+              cd $(Build.SourcesDirectory)/$(ClientAppFolder)
+              ls -laR .
+            displayName: "List Directory Contents"
+ 
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '18.x'
+            displayName: 'Install Node.js'
+ 
+          - script: |
+              echo "Listing contents of $(Build.SourcesDirectory):"
+              ls -laR $(Build.SourcesDirectory)
+              echo "Listing contents of $(Build.SourcesDirectory)/$(ClientAppFolder):"
+              cd $(Build.SourcesDirectory)/$(ClientAppFolder)
+              ls -laR .
+            displayName: "Pipeline Working Directories"
+          
+          - script: |
+              echo "Listing contents of $(Build.SourcesDirectory)/$(ClientAppFolder):"
+              cd $(Build.SourcesDirectory)/$(ClientAppFolder)
+              ls -laR .
+            displayName: "List Directory Contents of ClientApp"
+ 
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              workingDir: '$(Build.SourcesDirectory)/$(ClientAppFolder)'
+              customCommand: 'install --legacy-peer-deps'
+            continueOnError: true
+ 
+          - script: |
+              echo "Running npm audit"
+              cd $(Build.SourcesDirectory)/$(ClientAppFolder)
+              npm audit --json > $(Build.ArtifactStagingDirectory)/npm-audit.json || true
+              vulnerabilities=$(jq '.metadata.vulnerabilities' $(Build.ArtifactStagingDirectory)/npm-audit.json)
+              echo "npm audit summary:" > $(Build.ArtifactStagingDirectory)/npm-audit-summary.txt
+              echo "Critical: $(echo "$vulnerabilities" | jq '.critical')" >> $(Build.ArtifactStagingDirectory)/npm-audit-summary.txt
+              echo "High: $(echo "$vulnerabilities" | jq '.high')" >> $(Build.ArtifactStagingDirectory)/npm-audit-summary.txt
+              echo "Moderate: $(echo "$vulnerabilities" | jq '.moderate')" >> $(Build.ArtifactStagingDirectory)/npm-audit-summary.txt
+              echo "Low: $(echo "$vulnerabilities" | jq '.low')" >> $(Build.ArtifactStagingDirectory)/npm-audit-summary.txt
+              cat $(Build.ArtifactStagingDirectory)/npm-audit-summary.txt
+            displayName: 'Run npm audit and generate summary'
+ 
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)/npm-audit.json'
+              ArtifactName: 'npm-audit'
+              publishLocation: 'Container'
+            displayName: 'Publish npm audit results'
+ 
+          - task: SonarQubePrepare@5
+            inputs:
+              SonarQube: 'TEMSSonarQube'
+              scannerMode: 'CLI'
+              configMode: 'manual'
+              cliProjectKey: 'vfuk-csenablers'
+              cliSources: '.'
+              extraProperties: |
+                 sonar.exclusions=node_modules/**,**/node_modules/**
+ 
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              workingDir: '$(Build.SourcesDirectory)/$(ClientAppFolder)'
+              customCommand: 'run build:production'
+            continueOnError: true
+ 
+          - task: SonarQubeAnalyze@5
+            inputs:
+              jdkversion: 'JAVA_HOME_11_X64'
+ 
+          - task: SonarQubePublish@5
+            inputs:
+              pollingTimeoutSec: '300'
+ 
+          - script: |
+              echo "DefaultWorkingDirectory : $(System.DefaultWorkingDirectory)"
+              cd $(Build.SourcesDirectory)/$(ClientAppFolder)
+              ls -laR .
+            displayName: "Verify Working Directories"
+          
+ 
+          - task: ArchiveFiles@2
+            inputs:
+              rootFolderOrFile: '$(Build.SourcesDirectory)/$(ClientAppFolder)'
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(version)_build.zip'
+            displayName: 'Archive ClientApp/build Directory'
+ 
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: '$(version)_build'
+              publishLocation: 'Container'
+ 
+  - stage: Build_DotNet
+    displayName: 'Build Stage for .NET'
+    dependsOn: []
+ 
+    pool:
+      vmImage: 'windows-latest'
+ 
+    jobs:
+      - job: Build
+        displayName: 'Build Job for .NET'
+ 
+        steps:
+          - checkout: self
+ 
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '6.0.x'
+              installationPath: $(Agent.ToolsDirectory)/dotnet
+ 
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'restore'
+              projects: |
+                $(solution)
+                !$(excludeProjects)
+ 
+          - task: SonarQubePrepare@5
+            inputs:
+              SonarQube: 'TEMSSonarQube'
+              scannerMode: 'MSBuild'
+              projectKey: 'vfuk-csenablers'
+ 
+          - task: VSBuild@1
+            inputs:
+              solution: '$(solution)'
+              msbuildArgs: '/t:Rebuild /p:SkipSqlPostDeploy=true'
+              platform: '$(buildPlatform)'
+              configuration: '$(buildConfiguration)'
+              projects: |
+                $(solution)
+                !$(excludeProjects)
+                !**/OracleModels/*.csproj
+              clean: true
+              msbuildArchitecture: 'x64'
+              enableDefaultLogger: false
+            continueOnError: true
+ 
+          - task: VSTest@2
+            inputs:
+              platform: '$(buildPlatform)'
+              configuration: '$(buildConfiguration)'
+ 
+          - task: SonarQubeAnalyze@5
+            inputs:
+              jdkversion: 'JAVA_HOME_11_X64'
+ 
+          - task: SonarQubePublish@5
+            inputs:
+              pollingTimeoutSec: '300'
+ 
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'publish'
+              publishWebProjects: true
+              arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(version)_build'
+              zipAfterPublish: true
+              modifyOutputPath: false
+              workingDirectory: $(System.DefaultWorkingDirectory)
+ 
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: '$(version)_build'
+              publishLocation: 'Container'
+ 
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: 'Cobertura'
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.cobertura.xml'
+ 
+          - task: dependency-checker@1
+            continueOnError: true
+            inputs:
+              path: '$(Build.SourcesDirectory)'
+              searchRecursive: true
+              createReport: true
+              reportPath: '$(Build.ArtifactStagingDirectory)/dependency-check-report.html'
+              sortByOutdated: true
+ 
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)/dependency-check-report.html'
+              artifact: 'dependency-check-report'
+ 

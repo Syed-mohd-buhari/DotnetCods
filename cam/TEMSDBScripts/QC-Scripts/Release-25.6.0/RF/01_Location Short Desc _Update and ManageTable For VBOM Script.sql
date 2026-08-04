@@ -1,0 +1,15 @@
+ALTER TABLE VNFVMCAPACITY ADD   DATADISKNEW NUMBER(19) NOT NULL; 
+
+UPDATE VNFVMCAPACITY SET DATADISKNEW = DATADISK;
+COMMIT;
+
+ALTER TABLE VNFVMCAPACITY DROP COLUMN DATADISK ; 
+
+ALTER TABLE VNFVMCAPACITY RENAME COLUMN   DATADISKNEW TO DATADISK ; 
+ 
+ 
+update locations set shortdescription = SUBSTR(location, 0, 10)  where shortdescription is null;
+Commit;
+
+delete gridcustomcolumn where  classname ='LocationDtoGrid'; 
+COMMIT;

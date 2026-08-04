@@ -1,0 +1,113 @@
+---------------------------------------------------
+--  File created - Thursday-june-1-2023   
+--------------------------------------------------------
+
+CREATE SEQUENCE GEORESILIENCE_SEQ
+ START WITH 1
+  MAXVALUE 9999999999999999999999999999
+  MINVALUE 1
+  NOCYCLE
+  CACHE 20
+  NOORDER;
+COMMIT;
+
+  CREATE TABLE "GEORESILIENCE" 
+   (	"ID" NUMBER(10,0) DEFAULT "GEORESILIENCE_SEQ"."NEXTVAL", 
+	"CREATIONUSER" NUMBER(10,0), 
+	"CREATIONDATE" TIMESTAMP (6) DEFAULT SYS_EXTRACT_UTC(systimestamp), 
+	"MODIFICATIONUSER" NUMBER(10,0), 
+	"MODIFICATIONDATE" TIMESTAMP (6) DEFAULT SYS_EXTRACT_UTC(systimestamp), 
+	"DELETED" NUMBER(1,0) DEFAULT (0), 
+	"DELETIONDATE" TIMESTAMP (6), 
+	"DESCRIPTION" NVARCHAR2(2000)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "CAMDB" ;
+  COMMIT;
+--------------------------------------------------------
+--  DDL for Index PK_BUSINESSCONTINUITYMETHOD
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PK_GEORESILIENCE" ON "GEORESILIENCE" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+  COMMIT;
+--------------------------------------------------------
+--  Constraints for Table BUSINESSCONTINUITYMETHOD
+--------------------------------------------------------
+
+  ALTER TABLE "GEORESILIENCE" ADD CONSTRAINT "PK_GEORESILIENCE" PRIMARY KEY ("ID")
+  USING INDEX "PK_GEORESILIENCE"  ENABLE;
+  ALTER TABLE "GEORESILIENCE" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "GEORESILIENCE" MODIFY ("CREATIONUSER" NOT NULL ENABLE);
+  ALTER TABLE "GEORESILIENCE" MODIFY ("CREATIONDATE" NOT NULL ENABLE);
+  ALTER TABLE "GEORESILIENCE" MODIFY ("MODIFICATIONUSER" NOT NULL ENABLE);
+  ALTER TABLE "GEORESILIENCE" MODIFY ("MODIFICATIONDATE" NOT NULL ENABLE);
+  ALTER TABLE "GEORESILIENCE" MODIFY ("DELETED" NOT NULL ENABLE);
+  COMMIT;
+--------------------------------------------------------
+--  Ref Constraints for Table BUSINESSCONTINUITYMETHOD
+--------------------------------------------------------
+
+  ALTER TABLE "GEORESILIENCE" ADD CONSTRAINT "FK_GEORESILIENCE_ASPNETUSERS_MODIFICATIONUSER" FOREIGN KEY ("MODIFICATIONUSER")
+	  REFERENCES "ASPNETUSERS" ("ID") ENABLE;
+  ALTER TABLE "GEORESILIENCE" ADD CONSTRAINT "FK_GEORESILIENCE_ASPNETUSERS_CREATIONUSER" FOREIGN KEY ("CREATIONUSER")
+	  REFERENCES "ASPNETUSERS" ("ID") ENABLE;
+COMMIT;
+ALTER TABLE GEORESILIENCE
+MODIFY(ID  DEFAULT "GEORESILIENCE_SEQ"."NEXTVAL");
+COMMIT;
+--------------------------------------------------------
+--  Copy data from georesilience to BUSINESSCONTINUITYMETHOD
+--------------------------------------------------------
+insert into GEORESILIENCE ( select ID ,
+CREATIONUSER ,
+CREATIONDATE ,
+MODIFICATIONUSER ,
+MODIFICATIONDATE ,
+DELETED ,
+DELETIONDATE ,
+DESCRIPTION  from BUSINESSCONTINUITYMETHOD);
+COMMIT;
+
+-----------------------------------------------------------------
+-- Create new column in design aspects called BusinessContinuityMethodId
+-----------------------------------------------------------------
+
+ALTER TABLE DESIGNASPECTS 
+ADD GEORESILIENCEID Number(10,0) NULL;
+commit;
+
+
+ALTER TABLE "DESIGNASPECTS" ADD CONSTRAINT "FK_DESIGNASPECTS_GEORESILIENCE_GEORESILIENCEID" FOREIGN KEY ("GEORESILIENCEID")
+REFERENCES "GEORESILIENCE" ("ID") ENABLE;
+------------------------------------------------------------------------
+--Copy data from georesilenceid to businessContinuityId
+------------------------------------------------------------------------
+UPDATE DESIGNASPECTS SET GEORESILIENCEID = BUSINESSCONTINUITYMETHODID;
+COMMIT;
+
+------------------------------------------------------------------------
+--DROP column georisilienceId from design aspects
+------------------------------------------------------------------------
+ALTER TABLE DESIGNASPECTS 
+DROP COLUMN BUSINESSCONTINUITYMETHODID;
+commit;
+------------------------------------------------------------------------
+--DROP GEORESILIENCE table
+------------------------------------------------------------------------
+DROP TABLE BUSINESSCONTINUITYMETHOD CASCADE CONSTRAINTS;
+commit;
+------------------------------------------------------------------------
+--DROP GEORESILIENCE_SEQ
+------------------------------------------------------------------------
+DROP SEQUENCE BUSINESSCONTINUITYMETHOD_SEQ;
+Commit;
+

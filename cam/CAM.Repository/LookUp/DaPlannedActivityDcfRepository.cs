@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CAM.Contracts.RepositoryContracts.LookUp;
+using CAM.Entities;
+using CAM.Entities.Models.Lookup;
+using Microsoft.EntityFrameworkCore;
+using OracleModels.DBContext;
+using OracleModels.DBModels;
+
+namespace CAM.Repository.LookUp
+{
+   public partial class DaPlannedActivityDcfRepository : RepositoryBase<Daplannedactivitydcf>, IDaPlannedActivityDcfRepository
+    {
+       public DaPlannedActivityDcfRepository(ModelContext repositoryContext) : base(repositoryContext)
+       {
+       }
+       public IQueryable<Daplannedactivitydcf> GetAllWithRelations()
+       {
+            return FindAll()
+                .Include(p => p.CreationuserNavigation)
+                .Include(p => p.ModificationuserNavigation)
+                .Include(p => p.Designcomponentfamily)
+                .Include(p => p.Plannedactivity);
+  
+       }
+
+    }
+}

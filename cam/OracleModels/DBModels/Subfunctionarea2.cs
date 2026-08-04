@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace OracleModels.DBModels
+{
+    public partial class Subfunctionarea2
+    {
+        public decimal Subfunctionarea2id { get; set; }
+        public decimal? Subfunctionid { get; set; }
+        public int Creationuser { get; set; }
+        public DateTime Creationdate { get; set; }
+        public int Modificationuser { get; set; }
+        public DateTime Modificationdate { get; set; }
+        public string Tsack { get; set; }
+        public string Maxincomingstream { get; set; }
+        public string Heartbeatmaxburst { get; set; }
+        public string Potentiallyfailedmaxrtx { get; set; }
+        public string Mbuffer { get; set; }
+        public string Npercentage { get; set; }
+        public string Bundlingtimer { get; set; }
+        public string Minimumrto { get; set; }
+        public string Allowedincrementcookielife { get; set; }
+        public string Maxshutdownrtratt { get; set; }
+        public string Validcookielife { get; set; }
+        public string Initialadrecwin { get; set; }
+        public string Maxoutgoingstream { get; set; }
+        public string Numberofassociations { get; set; }
+        public string Initialrto { get; set; }
+        public string Pathselection { get; set; }
+        public string Bundlingactivated { get; set; }
+        public string Switchbackminthreshold { get; set; }
+        public string Switchbackmaxthreshold { get; set; }
+        public string Sctpid { get; set; }
+        public string Keychangeperiod { get; set; }
+        public string Rtoalphaindex { get; set; }
+        public string Maxuserdatasize { get; set; }
+        public string Heartbeatstatus { get; set; }
+        public string Rtobetaindex { get; set; }
+        public string Maxinitialrtratt { get; set; }
+        public string Heartbeatpathprobinginterval { get; set; }
+        public string Sctpassocdeletetimeout { get; set; }
+        public string Prioritydatadscpservice { get; set; }
+        public string Intervaloobpkts { get; set; }
+        public string Associationmaxrtx { get; set; }
+        public string Switchbackmode { get; set; }
+        public string Maximumrto { get; set; }
+        public string Nthreshold { get; set; }
+        public string Pvaluelimit { get; set; }
+        public string Dmaxlimit { get; set; }
+        public string Consecutiveidenticalresults { get; set; }
+        public string Upsenabled { get; set; }
+        public string Userplanesupervisionid { get; set; }
+        public string Corbasecurityactive { get; set; }
+        public string Crlearlyupdateinterval { get; set; }
+        public string Targetmonitorportactive { get; set; }
+        public string Localaadbinstallationfailure { get; set; }
+        public string Debugportsactive { get; set; }
+        public string Webserver { get; set; }
+        public string Targetmonitorport { get; set; }
+        public string Logindelay { get; set; }
+        public string Operationalsecuritylevel { get; set; }
+        public string Localauthenticationfileversion { get; set; }
+        public string Nooffailedloginattempts { get; set; }
+        public string Trustedcertificateinstallfail { get; set; }
+        public string Certexpirwarntime { get; set; }
+        public string Requestedsecuritylevel { get; set; }
+        public string Failedloginattemptperiod { get; set; }
+        public string Authorizationcachetimeout { get; set; }
+        public string Userlockoutperiod { get; set; }
+        public string Filetransferclientmode { get; set; }
+        public string Localauthorizationfileversion { get; set; }
+        public string Userauthenticationandauth { get; set; }
+        public string Autoupdatecertenrollmentserver { get; set; }
+        public string Telnetandftpserversactive { get; set; }
+        public string Installedtrustedcertificates { get; set; }
+        public string Aaserveripaddresslist { get; set; }
+        public string Securityid { get; set; }
+        public string Certrevstatuscheck { get; set; }
+        public string Performancedatavolume { get; set; }
+        public string Maxnoofcounters { get; set; }
+        public string Warningalarmlimitpercent { get; set; }
+        public string Minoralarmceasingdelta { get; set; }
+        public string Transactiontimeout { get; set; }
+        public string Maxnoofpmfiles { get; set; }
+        public string Warningalarmceasingdelta { get; set; }
+        public string Pmserviceid { get; set; }
+        public string Maxnoofmonitors { get; set; }
+        public string Agentipaddress { get; set; }
+        public string Snmpid { get; set; }
+        public string Agentport { get; set; }
+        public string Minimumsnmpversion { get; set; }
+        public string Logserviceid { get; set; }
+        public string Filefetcherid { get; set; }
+        public string Httpgetsupervisiontimer { get; set; }
+        public string Performancesupervisionid { get; set; }
+        public string Status { get; set; }
+        public string Numberofcounterinstances { get; set; }
+        public string Performanceindicatorid { get; set; }
+        public string Scheduleinfo { get; set; }
+        public string Executiontype { get; set; }
+        public string Systemcheckid { get; set; }
+        public string Checkresult { get; set; }
+        public string Gpstoutcleapsecondschangedate { get; set; }
+        public string Gpstoutcleapseconds { get; set; }
+        public string Daylightsavingtimeendrule { get; set; }
+        public string Timesettingid { get; set; }
+        public string Daylightsavingtimeon { get; set; }
+        public string Timeoffset { get; set; }
+        public string Daylightsavingtimeoffset { get; set; }
+        public string Daylightsavingtimestartrule { get; set; }
+        public string Dcgstate { get; set; }
+        public string Datacollectiongenerationid { get; set; }
+        public string Pushpmfunctionid { get; set; }
+        public string Integrationunlockstateinfo { get; set; }
+        public string Lastlicensingpichange { get; set; }
+        public string Licensingid { get; set; }
+        public string Emergencystateinfo { get; set; }
+        public string Ds0bundlemorefa { get; set; }
+        public string Ds0bundlemorefb { get; set; }
+        public string Tdmcrossconnectionid { get; set; }
+        public string Chid { get; set; }
+        public string Chrpumoref { get; set; }
+        public string Bgfsmsrpsupportedtlsversions { get; set; }
+        public string Userplanesecurityid { get; set; }
+        public string Nodecertificates { get; set; }
+        public string Mescrpumoref { get; set; }
+        public string Mescid { get; set; }
+        public string Localconnsupthreshold { get; set; }
+        public string Ipconnectivitysupervisionid { get; set; }
+        public string Featurestateipconnsup { get; set; }
+        public string Remoteipconnconsfailures { get; set; }
+        public string Remoteipconnsupactive { get; set; }
+        public string Localipconnsupactive { get; set; }
+        public string Remotesitesuptrafficreduction { get; set; }
+        public string Remotesitetrafflevactive { get; set; }
+        public string Licensestateipconnsup { get; set; }
+        public string Webserverid { get; set; }
+        public string Ncliid { get; set; }
+        public bool? Deleted { get; set; }
+        public DateTime? Deletiondate { get; set; }
+
+        public virtual Aspnetusers CreationuserNavigation { get; set; }
+        public virtual Aspnetusers ModificationuserNavigation { get; set; }
+        public virtual Subfunction Subfunction { get; set; }
+    }
+}

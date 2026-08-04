@@ -1,0 +1,9 @@
+﻿ALTER TABLE SUBDOMAINSPOCS
+ADD "ISSUBDOMAIN" NUMBER(1,0);
+
+ALTER TABLE SUBDOMAINSPOCS
+ADD "ISEDU" NUMBER(1,0);
+
+
+update subdomainspocs
+set isedu=1, issubdomain=1

@@ -1,0 +1,109 @@
+.card-w {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.card-w h1 {
+    font-size: 18px;
+    padding: 0 27px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.card-w .card-body-w {
+    /* padding: 0.5rem 1.25rem; */
+}
+
+.card-w .card-body-w img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 2px solid red;
+    box-shadow: 0px 0px 0px 1px rgba(152, 161, 179, 0.1), 0px 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.w-fc {
+    width: fit-content !important;
+}
+
+.card-w .card-body-w .links {
+    width: 100%;
+    height: 250px;
+    padding: 10px 10px;
+    background-color: var(--body_background);
+    box-shadow: 0px 0px 0px 1px rgba(152, 161, 179, 0.1), 0px 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 10px 10px;
+}
+
+.card-w .card-body-w .links p {
+  margin-bottom: 2px;
+  color: var(--body_color);
+  font-size: 14px;
+  text-align: left;
+}
+
+.card-w .card-body-w .links ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.card-w .card-body-w .links ul li {
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin: 4px 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+    transition: all 0.5s;
+    color: var(--body_color_li);
+    font-size: 12px;
+}
+
+.card-w .card-body-w .links ul li a {
+    text-decoration: none;
+    color: var(--body_color_li);
+}
+
+.card-w .card-body-w .links ul li img {
+    width: 6px;
+    height: 11px;
+    margin: 0 5px;
+}
+
+.card-w .card-body-w .links ul li:hover {
+    background-color: #e60000;
+    color: #fff;
+}
+
+.card-w .card-body-w .links ul li:hover a {
+    color: #fff;
+}
+
+.flex-t {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .card-w .card-body-w .links {
+        height: inherit;
+    }
+}
+
+@media (max-width: 767px) and (max-width: 991px) {
+    .card-w .card-body-w .links {
+        height: inherit;
+    }
+}
+
+@media (max-width: 991px) and (max-width: 12289px) {
+    .card-w .card-body-w .links {
+        height: inherit;
+    }
+}

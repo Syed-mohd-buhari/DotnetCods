@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using CAM.Contracts.RepositoryContracts.Entity;
+using CAM.Entities;
+using CAM.Entities.Models;
+using Microsoft.EntityFrameworkCore;
+using OracleModels.DBContext;
+using OracleModels.DBModels;
+
+namespace CAM.Repository.Entity
+{
+    public class SystemTypeRepository : RepositoryBase<Systemtypes>, ISystemTypeRepository
+    {
+        ModelContext _context;
+        public SystemTypeRepository(ModelContext repositoryContext) : base(repositoryContext)
+        {
+            _context = repositoryContext;
+        }
+
+        public async Task<IEnumerable<Systemtypes>> GetAllWithRelations()
+        {
+            return await FindAll()
+                .ToListAsync();
+        }
+        public void Detach()
+        {
+
+            var data = typeof(SystemType);
+            var changedEntriesCopy = _context.ChangeTracker.Entries()
+                .Where(e => e.Entity.GetType() == data)
+                .ToList();
+
+            foreach (var entry in changedEntriesCopy)
+                entry.State = EntityState.Detached;
+
+
+        }
+
+    }
+}

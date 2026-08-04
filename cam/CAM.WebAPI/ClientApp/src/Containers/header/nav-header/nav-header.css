@@ -1,0 +1,65 @@
+.nav-c {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:var(--nav_background);
+    color: var(--body_color);
+}
+
+.nav-c img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.nav-c .avatar img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.nav-c .avatar p {
+    margin: 0;
+    font-size: 15px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    align-items: center;
+}
+
+.dropdown-menu {
+    min-width: 13rem !important;
+}
+
+.dropdown-submenu-container a.dropdown-submenu::after {
+    right: 14px;
+}
+
+.dropdown-item {
+    padding: 0.5rem;
+}
+
+.avatar .dropdown-toggle::after {
+    display: none;
+}
+
+#user-menu {
+    background-color: transparent;
+    border: none;
+}
+
+.avatar .btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none !important;
+}
+
+.avatar .btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: none !important;
+}

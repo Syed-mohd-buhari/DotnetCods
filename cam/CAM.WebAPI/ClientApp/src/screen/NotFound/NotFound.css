@@ -1,0 +1,16 @@
+.NotFound {
+  margin: 100px 0;
+  text-align: center;
+}
+
+h1 {
+  font-weight: bold;
+  color: #e60000;
+}
+button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #641717;
+  font-weight: bold;
+}

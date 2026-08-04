@@ -1,0 +1,149 @@
+.custom-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 610px;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--bs-primary);
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--bs-primary);
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+.play-pause-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.play-pause-btn .icon-play {
+  font-size: 20px;
+}
+
+.play-pause-btn .icon-pause {
+  font-size: 20px;
+}
+/* Optional: Hover effect for the button */
+.play-pause-btn:hover {
+  background: #005bb5;
+}
+
+.play-pause-btn {
+  position: absolute;
+  left: 10px;
+  bottom: 16px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.carousel-control-prev {
+  height: 50px;
+  width: 50px;
+  align-self: center !important;
+  top: 50%;
+  bottom: 50%;
+  left: 10px;
+  padding: 4px;
+  background-color: #3333337d;
+  border-radius: 50%;
+}
+
+.carousel-control-next {
+  height: 50px;
+  width: 50px;
+  align-self: center !important;
+  top: 50%;
+  bottom: 50%;
+  right: 10px;
+  padding: 4px;
+  background-color: #f8f9f86e;
+  border-radius: 50%;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 10px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #007bff !important;
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: #007bff !important;
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+.carousel-indicators {
+  align-items: center !important;
+}
+
+.carousel-indicators li {
+  background-color: #dee2e6b8 !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50% !important;
+}
+.carousel-indicators .active {
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50% !important;
+}

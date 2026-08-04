@@ -1,0 +1,27 @@
+import { LookUpGrid } from "../../../../Model/LookUp/LookUpGenericModel"
+import {initState} from '../ActivityStatus/ActivityStatusGridReducer'
+// const initState: LookUpGrid = {
+//     LookUpGridResult: null,
+//     LookUpGridResultAll: null,
+//     filter: null,
+// }
+//const dispatch = useDispatch();
+//const dispatch = useDispatch();
+
+
+export const LCMHardwareSupportTypeGridReducer = (state = initState, action: { type: string, payload: LookUpGrid }) => {
+    switch (action.type) {
+        case "GET_GRID_LCM_HW_SUPPORT_TYPE":
+            {
+                return { ...state, LookUpGridResult: action.payload.LookUpGridResult }
+            }
+        case "GET_GRID_LCM_HW_SUPPORT_TYPE_ALL":
+            {
+                return { ...state, LookUpGridResultAll: action.payload.LookUpGridResult }
+            }
+        case "GET_FILTER_LCM_HW_SUPPORT_TYPE":
+            return { ...state, filter: action.payload.filter }
+        default:
+            return state;
+    }
+}

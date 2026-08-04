@@ -1,0 +1,2 @@
+--------------------------------------RB SCRIPT FOR CLUSTERUPGRADETABLE--------------------------
+ALTER TABLE CLUSTERUPGRADESTATUS DROP COLUMN "HARDWARETYPE";

@@ -1,0 +1,49 @@
+div.generalDetails {
+  background-color: #eee;
+  padding: 20px;
+}
+
+div.detailsContainer {
+  background-color: #fff;
+  padding: 20px;
+}
+
+label.input-detail {
+  font-family: "VodafoneLt";
+  font-size: 1.1em;
+  color: #555;
+}
+
+input.input-detail {
+  font-size: 1.1em;
+  margin-top: 10px;
+  padding-left: 5px;
+  height: 40px;
+}
+
+select.input-detail{
+  height:40px
+}
+
+input.input-detail.original {
+  font-family: "VodafoneRg";
+}
+
+input.input-detail.modified {
+  font-family: "VodafoneRgBd";
+}
+
+input.input-detail:read-only {
+  border: none;
+  outline: none;
+  background-color: transparent !important;
+}
+
+input.input-detail:disabled {
+  border: none;
+  outline: none;
+  padding-left: 0;
+  background-color: transparent !important;
+  font-size: 1.5em;
+}
+

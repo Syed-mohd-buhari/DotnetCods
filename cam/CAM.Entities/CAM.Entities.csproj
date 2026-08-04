@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Version>1.30.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EntityFramework.Functions" Version="1.5.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.18" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.18" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.18">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.18">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.2.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CAM.Enum\CAM.Enum.csproj" />
+		<ProjectReference Include="..\CAM.Identity\CAM.Identity.csproj" />
+		<ProjectReference Include="..\CAM.Mail\CAM.Mail.csproj" />
+		<ProjectReference Include="..\OracleModels\OracleModels.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,6 @@
+
+--------------------------------DML SCRIPT REMOVE ENTRY IN  AUDITTABLESANDCOLUMNS 
+
+
+delete from AUDITTABLESANDCOLUMNS where ENTITYNAME in ('Vnfinfo','Vnfvminstances','Vnfvmcapacity');
+commit;

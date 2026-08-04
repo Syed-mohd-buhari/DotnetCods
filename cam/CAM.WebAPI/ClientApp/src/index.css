@@ -1,0 +1,124 @@
+:root {
+  --body_background: #fff !important;
+  --body_color: #333 !important;
+  --body_app_background: #282c34 !important;
+  --body_color_li: #757575 !important;
+  --table_tr_bg: #fefefe;
+  --table_tr_bg_even: #f2f2f2;
+  --table_tr_bg_hover: #e9ecef;
+  --table_tr_td_color: #333333;
+  --landing_main_card_bg: #c4c4c4;
+  --landing_main_card_shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  --landing_main_card_hover: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    #9a9494;
+  --landing_main_card_hover_shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  --landing_color: #000;
+  --landing_color_alter: #fff;
+  --landing_menu_hover: #eff4ff;
+  --landing_bg: #fff !important;
+  --landing_header_bg: #c4c4c4 !important;
+  --nav_background: #333;
+  --nav_secondary_background: #c4c4c4;
+  --treeview_firstrow_background: rgba(230, 0, 0, 0.6);
+  --treeview_secondaryrow_background: rgba(74, 77, 78, 0.6);
+  --treeview_thirdrow_background: rgba(37, 40, 43, 0.6);
+  --primary_theme_color: #000 !important;
+  --primary_alternate_theme_color: #fff !important;
+  --pagenation_arrow_color: none !important;
+  --orphan_highlight: #b5d3fb;
+  --orphan_alternate_highlight: #a0c8fd;
+  --orphan_highlight_hover: #d6faff;
+  --profile_card_border: rgba(41, 41, 41, 0.16);
+  --download_btn_color: #7a7a7a;
+  --btn_hover_color: #f1eaea;
+  --date-picker-bg-dark: #f5f5f5;
+  --date-picker-header-dark: #fff;
+  --date-picker-hover-dark: #ccc;
+  --date-picker-selected-dark: #007bff;
+  --text-light: black;
+  --border-dark: #ddd;
+  --border-focus: #0056b3;
+}
+
+body[data-theme="dark"] {
+  --body_background: #333 !important;
+  --body_color: #fff !important;
+  --body_app_background: white !important;
+  --body_color_li: white !important;
+  --table_tr_bg: #000;
+  --table_tr_bg_even: #3b3b3b;
+  --table_tr_bg_hover: #161316;
+  --table_tr_td_color: #cccccc;
+  --landing_main_card_bg: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    #3b3b3b;
+  --landing_main_card_shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  --landing_main_card_hover: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    #747070;
+  --landing_main_card_hover_shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75) inset;
+  --landing_color: #fff;
+  --landing_color_alter: #000;
+  --landing_menu_hover: #100b00;
+  --landing_bg: #000 !important;
+  --landing_header_bg: #c4c4c4 !important;
+  --nav_background: #000;
+  --nav_secondary_background: #000;
+  --treeview_firstrow_background: rgba(230, 0, 0, 0.4);
+  --treeview_secondaryrow_background: rgba(74, 77, 78, 0.6);
+  --treeview_thirdrow_background: #828a8c;
+  --primary_theme_color: #fff !important;
+  --primary_alternate_theme_color: #000 !important;
+  --pagenation_arrow_color: invert(100%) !important;
+  --orphan_highlight: #e60000;
+  --orphan_alternate_highlight: #a94040;
+  --orphan_highlight_hover: gray;
+  --profile_card_border: #fff;
+  --download_btn_color: #fff;
+  --btn_hover_color: #000;
+  --date-picker-bg-dark: #333;
+  --date-picker-header-dark: #222;
+  --date-picker-hover-dark: #444;
+  --date-picker-selected-dark: #0066cc;
+  --text-light: white;
+  --border-dark: #444;
+  --border-focus: #0066cc;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--landing_bg);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.addNewGlossary {
+  float: left;
+  margin: 2rem 0;
+}
+
+.p-40 {
+  padding: 40px;
+}
+
+.b-0 {
+  border: 0 !important;
+}

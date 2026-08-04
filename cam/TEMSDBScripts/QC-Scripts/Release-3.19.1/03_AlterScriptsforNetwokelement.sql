@@ -1,0 +1,1 @@
+ALTER TABLE	Netwokelement ADD Nodetypename NVARCHAR2(50);

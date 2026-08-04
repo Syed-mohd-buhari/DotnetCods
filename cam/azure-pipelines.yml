@@ -1,0 +1,36 @@
+resources:
+  repositories:
+    - repository: CAMS_SourceCode
+      type: githubenterprise
+      name: VFUK-VoiceCore-CAMSApplication/CAMS-SourceCode
+      endpoint: TEMS-GitHub
+      fetchDepth: 1
+      clean: true
+      branches:
+        include:
+          - Dev-Release-*
+
+      trigger:
+       tags:
+        include: 
+          - V*
+        exclude:
+          - master
+       paths:
+        include:
+         - CAMS-SourceCode
+        exclude:
+         -  CAMS-SourceCode/TEMSDBScripts
+         - '**/*.sqlproj'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'

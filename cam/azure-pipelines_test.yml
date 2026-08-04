@@ -1,0 +1,79 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - QC-Release-*
+
+  tags:
+    include:
+      - QC-Release-*
+      - 'v*'
+
+  paths:
+    include:
+      - CAMS-SourceCode
+    exclude:
+      - CAMS-SourceCode/TEMSDBScripts
+      - '**/*.sqlproj'
+ 
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  projectKey: 'vfuk-csenablers'
+  Nodeversion: '18.x'
+  ClientAppFolder: 'CAM.WebAPI/ClientApp'
+  sonarQubeInstance: 'TEMSSonarQube'
+  sonarScannerMode: 'CLI'
+  sonarJDKVersion: 'JAVA_HOME_11_X64'
+  archiveRootFolder: '$(BuildDirectory)/build/'
+  archiveFileName: 'build_$(Build.BuildId).zip'
+  solution: '**/*.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  excludeProjects: '**/TEMSDBScripts/*.csproj'
+ 
+stages:
+  - stage: Build_NodeJS
+    displayName: 'Build Stage for Node.js'
+    jobs:
+      - job: Build
+        displayName: 'Build Job for Node.js'
+
+        pool:
+          vmImage: 'ubuntu-latest'
+
+        steps:
+          - script: |
+              echo "Debugging Branch and Path:"
+              echo "Branch: $(Build.SourceBranch)"
+              echo "Build.SourcesDirectory: $(Build.SourcesDirectory)"
+              echo "ClientAppFolder: $(ClientAppFolder)"
+              echo "Listing root directory contents:"
+              ls -laR $(Build.SourcesDirectory)
+              echo "Listing CAMS-SourceCode directory contents:"
+              ls -laR $(Build.SourcesDirectory)/CAMS-SourceCode
+              echo "Listing CAMS-SourceCode/CAM.WebAPI directory contents:"
+              ls -laR $(Build.SourcesDirectory)/CAMS-SourceCode/CAM.WebAPI
+              echo "End of Debugging Information"
+            displayName: "List directory cotents "
+ 
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '18.x'
+            displayName: 'Install Node.js'
+ 
+          - script: |
+              echo "Listing contents of $(Build.SourcesDirectory):"
+              ls -laR $(Build.SourcesDirectory)
+              echo "Listing contents of $(Build.SourcesDirectory)/CAMS-SourceCode/$(ClientAppFolder):"
+              cd $(Build.SourcesDirectory)/CAMS-SourceCode/$(ClientAppFolder)
+              ls -laR .
+            displayName: "Pipeline Working Directories"
+ 
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              workingDir: '$(Build.SourcesDirectory)/CAMS-SourceCode/$(ClientAppFolder)'
+              customCommand: 'install --legacy-peer-deps'
+            continueOnError: true

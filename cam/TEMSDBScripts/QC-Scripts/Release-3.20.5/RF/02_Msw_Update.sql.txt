@@ -1,0 +1,12 @@
+
+-------------- Backup table for MajorsoftwareBuild --------------
+
+Create table  majorsoftwarebuilds_Backup_EOMDATEUPDATE as select * from majorsoftwarebuilds; 
+ 
+update majorsoftwarebuilds set ENDOFMAINTENANCE = add_months(sysdate,60) ,eomstatus = 2 where  ENDOFMAINTENANCE is null  ; 
+
+--drop table majorsoftwarebuilds_Backup_EOMDATEUPDATE;
+
+--update majorsoftwarebuilds set  endofsupport = add_months(sysdate,60) where  endofsupport is null;
+
+Commit;

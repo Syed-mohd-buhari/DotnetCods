@@ -1,0 +1,7 @@
+ALTER TABLE DCFLIFECYCLE 
+ADD(
+    NodeIndex NUMBER(19, 0),
+    Details NVARCHAR2(255) 
+	);
+COMMIT;	
+	
